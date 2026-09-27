@@ -1,0 +1,56 @@
+[
+  {
+    "model_key": "qwen",
+    "id": "future-partners-formerly-destination-analysts-the-state-of-the-a--w202609--max_leisure_travel_spend_next_12m",
+    "reason": "Completion tokens reconcile total usage but are recorded alongside additional thinking tokens.",
+    "completion_tokens": 11681,
+    "thinking_tokens": 11541,
+    "possible_duplicate_token_cost_usd": 0.057139490999999994,
+    "actual_debit_verified": false
+  },
+  {
+    "model_key": "glm",
+    "id": "future-partners-formerly-destination-analysts-the-state-of-the-a--w202609--max_leisure_travel_spend_next_12m",
+    "reason": "Completion tokens reconcile total usage but are recorded alongside additional thinking tokens.",
+    "completion_tokens": 2353,
+    "thinking_tokens": 2256,
+    "possible_duplicate_token_cost_usd": 0.006768,
+    "actual_debit_verified": false
+  },
+  {
+    "model_key": "mimo",
+    "id": "future-partners-formerly-destination-analysts-the-state-of-the-a--w202609--max_leisure_travel_spend_next_12m",
+    "reason": "Completion tokens reconcile total usage but are recorded alongside additional thinking tokens.",
+    "completion_tokens": 2256,
+    "thinking_tokens": 2123,
+    "possible_duplicate_token_cost_usd": 0.006369,
+    "actual_debit_verified": false
+  },
+  {
+    "model_key": "nemotron",
+    "id": "future-partners-formerly-destination-analysts-the-state-of-the-a--w202609--max_leisure_travel_spend_next_12m",
+    "reason": "Completion tokens reconcile total usage but are recorded alongside additional thinking tokens.",
+    "completion_tokens": 264,
+    "thinking_tokens": 104,
+    "possible_duplicate_token_cost_usd": 0.00026,
+    "actual_debit_verified": false
+  },
+  {
+    "model_key": "seed",
+    "id": "future-partners-formerly-destination-analysts-the-state-of-the-a--w202609--max_leisure_travel_spend_next_12m",
+    "reason": "Completion tokens reconcile total usage but are recorded alongside additional thinking tokens.",
+    "completion_tokens": 566,
+    "thinking_tokens": 444,
+    "possible_duplicate_token_cost_usd": 0.001332,
+    "actual_debit_verified": false
+  },
+  {
+    "model_key": "gptoss",
+    "id": "future-partners-formerly-destination-analysts-the-state-of-the-a--w202609--max_leisure_travel_spend_next_12m",
+    "reason": "Completion tokens reconcile total usage but are recorded alongside additional thinking tokens.",
+    "completion_tokens": 545,
+    "thinking_tokens": 446,
+    "possible_duplicate_token_cost_usd": 0.00026759999999999995,
+    "actual_debit_verified": false
+  }
+]

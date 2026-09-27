@@ -1,0 +1,460 @@
+[
+  {
+    "model_key": "llama33",
+    "reason": "EP reported JobStalledError: the single-question task stayed queued for 602 seconds. No validated answer or full batch; this is an infrastructure failure, not a measured model-format failure.",
+    "records": [],
+    "cost_audit": {
+      "state": "unresolved",
+      "results_cost_usd": 0.0,
+      "reported_job_cost_usd": 0.0,
+      "job_uuid": "9550b25d-1482-4833-8f6a-a91ca5e9e0db",
+      "failed_questions": 1
+    }
+  },
+  {
+    "model_key": "gemini25",
+    "reason": "Smoke run produced no native validated distribution; no full batch submitted.",
+    "records": [],
+    "cost_audit": {
+      "state": "unresolved",
+      "results_cost_usd": 0.0,
+      "reported_job_cost_usd": 0.0,
+      "job_uuid": "71bbcf7f-105f-4115-b8fa-712ae84a997e",
+      "failed_questions": 1
+    }
+  },
+  {
+    "model_key": "mistral",
+    "reason": "Smoke run produced no native validated distribution; no full batch submitted.",
+    "records": [],
+    "cost_audit": {
+      "state": "unresolved",
+      "results_cost_usd": 0.0,
+      "reported_job_cost_usd": 0.0,
+      "job_uuid": "c751dd25-5fa8-42f9-9928-873246612d49",
+      "failed_questions": 1
+    }
+  },
+  {
+    "model_key": "phi",
+    "reason": "Smoke run produced no native validated distribution; no full batch submitted.",
+    "records": [],
+    "cost_audit": {
+      "state": "unresolved",
+      "results_cost_usd": 0.0,
+      "reported_job_cost_usd": 0.0,
+      "job_uuid": "25589285-4697-4117-a1c1-2fc490b87d19",
+      "failed_questions": 1
+    }
+  },
+  {
+    "model_key": "qwen",
+    "reason": "Smoke usage records suggest reasoning tokens included in completion_tokens were charged a second time; full batch withheld pending billing clarification.",
+    "records": [
+      {
+        "id": "future-partners-formerly-destination-analysts-the-state-of-the-a--w202609--max_leisure_travel_spend_next_12m",
+        "question_name": "marginal_000",
+        "model_key": "qwen",
+        "requested_model": "Qwen/Qwen3.8-Max",
+        "returned_model": "Qwen/Qwen3.8-Max",
+        "answer": {
+          "$10,000 or more": 0.13,
+          "$5,000 - $9,999": 0.15,
+          "$2,000 - $4,999": 0.24,
+          "$1,000 - $1,999": 0.17,
+          "$500 - $999": 0.12,
+          "$100 - $499": 0.12,
+          "Under $100": 0.07
+        },
+        "generated_text": "{\n  \"$10,000 or more\": 0.13,\n  \"$5,000 - $9,999\": 0.15,\n  \"$2,000 - $4,999\": 0.24,\n  \"$1,000 - $1,999\": 0.17,\n  \"$500 - $999\": 0.12,\n  \"$100 - $499\": 0.12,\n  \"Under $100\": 0.07\n}",
+        "cache_used": false,
+        "validated": true,
+        "usage": {
+          "completion_tokens": 11681,
+          "prompt_tokens": 901,
+          "total_tokens": 12582,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 11541,
+            "rejected_prediction_tokens": null,
+            "text_tokens": 11681
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cache_write_tokens": null,
+            "cached_tokens": 0
+          },
+          "estimated_cost": 0.059319281000000015
+        },
+        "results_cost_usd": 0.116458772,
+        "input_price_per_million_tokens": 1.65,
+        "output_price_per_million_tokens": 4.951,
+        "recorded_input_tokens": 901,
+        "recorded_output_tokens": 11681,
+        "recorded_thinking_tokens": 11541,
+        "prompt": {
+          "marginal_000_user_prompt": {
+            "text": "{\"audience\": \"Adult American travelers in the United States (all respondents, n=3,995 completed studies as printed on the slide; lower than the 4,018 printed on other full-sample slides, with no routing or exclusion stated), with this question asked of the full sample and no screen, subgroup restriction or split sample published. They were questioned by Future Partners for its monthly State of the American Traveler tracking study, September 2026 edition, fielded August 17 to 23, 2026, as a representative sample of adult American travelers in each of the four U.S. Census regions, with data weighted to reflect the actual population of each region and a stated confidence interval of plus or minus 1.55 percent; the September 2026 deck names no sponsor or funder, and the publisher states that 4,000+ fully completed studies are collected each wave (the deck's full-sample chart bases print 4,018 completed studies, with 4,002, 3,995 and 3,812 on individual slides; no wave total is published). The publisher does not publish a numeric minimum age, the traveler screening question, the sampling frame or panel source, the interview mode, the languages of administration, the response rate, weighting benchmarks beyond region, per-region sample sizes, or the rule by which sub-samples were selected.\", \"survey_date\": \"2026-08-23\", \"question\": \"How much IN TOTAL is the maximum you will spend on leisure travel (including airfare, accommodations and all other trip related spending) during the NEXT 12 MONTHS?\", \"instructions\": [\"Response line as printed with the question: 'Maximum I would spend on leisure travel (next 12 months): _________'. Results are reported in the dollar bands listed as the response options; the publisher does not state whether respondents chose a band or entered an amount that was then banded.\"], \"answer_options\": [\"$10,000 or more\", \"$5,000 - $9,999\", \"$2,000 - $4,999\", \"$1,000 - $1,999\", \"$500 - $999\", \"$100 - $499\", \"Under $100\"]}\n\n\nAllocate probability over these mutually exclusive, collectively exhaustive outcomes:\n\n\n\"$10,000 or more\"\n\n\"$5,000 - $9,999\"\n\n\"$2,000 - $4,999\"\n\n\"$1,000 - $1,999\"\n\n\"$500 - $999\"\n\n\"$100 - $499\"\n\n\"Under $100\"\n\n\nReturn a single JSON object mapping every displayed label to its probability.\nUse the exact labels, include zero-probability entries, and do not repeat keys.\nEach probability must be a number from 0 to 1. Their sum must be 1.\nUse probabilities, not percentages. Do not wrap the object in an \"answer\" field.\nExample of the required format: {\"$10,000 or more\": 1.0, \"$5,000 - $9,999\": 0.0, \"$2,000 - $4,999\": 0.0, \"$1,000 - $1,999\": 0.0, \"$500 - $999\": 0.0, \"$100 - $499\": 0.0, \"Under $100\": 0.0}\n",
+            "class_name": "Prompt"
+          },
+          "marginal_000_system_prompt": {
+            "text": "Estimate the probability that a randomly selected member of the described survey population selects each answer. Account for the population, location and survey date. Return a JSON object mapping each exact answer label to its probability. Use nonnegative numbers summing to 1.",
+            "class_name": "Prompt"
+          }
+        }
+      }
+    ],
+    "cost_audit": {
+      "state": "matched",
+      "results_cost_usd": 0.116458772,
+      "reported_job_cost_usd": 0.11630000000000001,
+      "difference_usd": -0.0001587719999999876,
+      "absolute_tolerance_usd": 0.0002,
+      "ratio": 0.9986366677471064,
+      "actual_debit_verified": false,
+      "job_uuid": "e529f57a-a08c-4fd4-a43c-edac2023ba38",
+      "failed_questions": 0
+    }
+  },
+  {
+    "model_key": "glm",
+    "reason": "Smoke usage records suggest reasoning tokens included in completion_tokens were charged a second time; full batch withheld pending billing clarification.",
+    "records": [
+      {
+        "id": "future-partners-formerly-destination-analysts-the-state-of-the-a--w202609--max_leisure_travel_spend_next_12m",
+        "question_name": "marginal_000",
+        "model_key": "glm",
+        "requested_model": "zai-org/GLM-5.3",
+        "returned_model": "zai-org/GLM-5.3",
+        "answer": {
+          "$10,000 or more": 0.18,
+          "$5,000 - $9,999": 0.2,
+          "$2,000 - $4,999": 0.26,
+          "$1,000 - $1,999": 0.17,
+          "$500 - $999": 0.1,
+          "$100 - $499": 0.06,
+          "Under $100": 0.03
+        },
+        "generated_text": "```json\n{\"$10,000 or more\": 0.18, \"$5,000 - $9,999\": 0.20, \"$2,000 - $4,999\": 0.26, \"$1,000 - $1,999\": 0.17, \"$500 - $999\": 0.10, \"$100 - $499\": 0.06, \"Under $100\": 0.03}\n```",
+        "cache_used": false,
+        "validated": true,
+        "usage": {
+          "completion_tokens": 2353,
+          "prompt_tokens": 753,
+          "total_tokens": 3106,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 2256,
+            "rejected_prediction_tokens": null
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cache_write_tokens": null,
+            "cached_tokens": 0
+          },
+          "estimated_cost": 0.0063060625
+        },
+        "results_cost_usd": 0.0145047,
+        "input_price_per_million_tokens": 0.9,
+        "output_price_per_million_tokens": 3.0,
+        "recorded_input_tokens": 753,
+        "recorded_output_tokens": 2353,
+        "recorded_thinking_tokens": 2256,
+        "prompt": {
+          "marginal_000_user_prompt": {
+            "text": "{\"audience\": \"Adult American travelers in the United States (all respondents, n=3,995 completed studies as printed on the slide; lower than the 4,018 printed on other full-sample slides, with no routing or exclusion stated), with this question asked of the full sample and no screen, subgroup restriction or split sample published. They were questioned by Future Partners for its monthly State of the American Traveler tracking study, September 2026 edition, fielded August 17 to 23, 2026, as a representative sample of adult American travelers in each of the four U.S. Census regions, with data weighted to reflect the actual population of each region and a stated confidence interval of plus or minus 1.55 percent; the September 2026 deck names no sponsor or funder, and the publisher states that 4,000+ fully completed studies are collected each wave (the deck's full-sample chart bases print 4,018 completed studies, with 4,002, 3,995 and 3,812 on individual slides; no wave total is published). The publisher does not publish a numeric minimum age, the traveler screening question, the sampling frame or panel source, the interview mode, the languages of administration, the response rate, weighting benchmarks beyond region, per-region sample sizes, or the rule by which sub-samples were selected.\", \"survey_date\": \"2026-08-23\", \"question\": \"How much IN TOTAL is the maximum you will spend on leisure travel (including airfare, accommodations and all other trip related spending) during the NEXT 12 MONTHS?\", \"instructions\": [\"Response line as printed with the question: 'Maximum I would spend on leisure travel (next 12 months): _________'. Results are reported in the dollar bands listed as the response options; the publisher does not state whether respondents chose a band or entered an amount that was then banded.\"], \"answer_options\": [\"$10,000 or more\", \"$5,000 - $9,999\", \"$2,000 - $4,999\", \"$1,000 - $1,999\", \"$500 - $999\", \"$100 - $499\", \"Under $100\"]}\n\n\nAllocate probability over these mutually exclusive, collectively exhaustive outcomes:\n\n\n\"$10,000 or more\"\n\n\"$5,000 - $9,999\"\n\n\"$2,000 - $4,999\"\n\n\"$1,000 - $1,999\"\n\n\"$500 - $999\"\n\n\"$100 - $499\"\n\n\"Under $100\"\n\n\nReturn a single JSON object mapping every displayed label to its probability.\nUse the exact labels, include zero-probability entries, and do not repeat keys.\nEach probability must be a number from 0 to 1. Their sum must be 1.\nUse probabilities, not percentages. Do not wrap the object in an \"answer\" field.\nExample of the required format: {\"$10,000 or more\": 1.0, \"$5,000 - $9,999\": 0.0, \"$2,000 - $4,999\": 0.0, \"$1,000 - $1,999\": 0.0, \"$500 - $999\": 0.0, \"$100 - $499\": 0.0, \"Under $100\": 0.0}\n",
+            "class_name": "Prompt"
+          },
+          "marginal_000_system_prompt": {
+            "text": "Estimate the probability that a randomly selected member of the described survey population selects each answer. Account for the population, location and survey date. Return a JSON object mapping each exact answer label to its probability. Use nonnegative numbers summing to 1.",
+            "class_name": "Prompt"
+          }
+        }
+      }
+    ],
+    "cost_audit": {
+      "state": "matched",
+      "results_cost_usd": 0.0145047,
+      "reported_job_cost_usd": 0.0144,
+      "difference_usd": -0.00010470000000000097,
+      "absolute_tolerance_usd": 0.0002,
+      "ratio": 0.9927816500858342,
+      "actual_debit_verified": false,
+      "job_uuid": "8486c393-627c-47fb-bbfd-2fcf78205076",
+      "failed_questions": 0
+    }
+  },
+  {
+    "model_key": "mimo",
+    "reason": "Smoke usage records suggest reasoning tokens included in completion_tokens were charged a second time; full batch withheld pending billing clarification.",
+    "records": [
+      {
+        "id": "future-partners-formerly-destination-analysts-the-state-of-the-a--w202609--max_leisure_travel_spend_next_12m",
+        "question_name": "marginal_000",
+        "model_key": "mimo",
+        "requested_model": "XiaomiMiMo/MiMo-V2.5-Pro",
+        "returned_model": "XiaomiMiMo/MiMo-V2.5-Pro",
+        "answer": {
+          "$10,000 or more": 0.1,
+          "$5,000 - $9,999": 0.15,
+          "$2,000 - $4,999": 0.25,
+          "$1,000 - $1,999": 0.2,
+          "$500 - $999": 0.15,
+          "$100 - $499": 0.1,
+          "Under $100": 0.05
+        },
+        "generated_text": "{\n  \"$10,000 or more\": 0.10,\n  \"$5,000 - $9,999\": 0.15,\n  \"$2,000 - $4,999\": 0.25,\n  \"$1,000 - $1,999\": 0.20,\n  \"$500 - $999\": 0.15,\n  \"$100 - $499\": 0.10,\n  \"Under $100\": 0.05\n}",
+        "cache_used": false,
+        "validated": true,
+        "usage": {
+          "completion_tokens": 2256,
+          "prompt_tokens": 847,
+          "total_tokens": 3103,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 2123,
+            "rejected_prediction_tokens": null
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cache_write_tokens": null,
+            "cached_tokens": 0
+          },
+          "estimated_cost": 0.00296985
+        },
+        "results_cost_usd": 0.013984000000000002,
+        "input_price_per_million_tokens": 1.0,
+        "output_price_per_million_tokens": 3.0,
+        "recorded_input_tokens": 847,
+        "recorded_output_tokens": 2256,
+        "recorded_thinking_tokens": 2123,
+        "prompt": {
+          "marginal_000_user_prompt": {
+            "text": "{\"audience\": \"Adult American travelers in the United States (all respondents, n=3,995 completed studies as printed on the slide; lower than the 4,018 printed on other full-sample slides, with no routing or exclusion stated), with this question asked of the full sample and no screen, subgroup restriction or split sample published. They were questioned by Future Partners for its monthly State of the American Traveler tracking study, September 2026 edition, fielded August 17 to 23, 2026, as a representative sample of adult American travelers in each of the four U.S. Census regions, with data weighted to reflect the actual population of each region and a stated confidence interval of plus or minus 1.55 percent; the September 2026 deck names no sponsor or funder, and the publisher states that 4,000+ fully completed studies are collected each wave (the deck's full-sample chart bases print 4,018 completed studies, with 4,002, 3,995 and 3,812 on individual slides; no wave total is published). The publisher does not publish a numeric minimum age, the traveler screening question, the sampling frame or panel source, the interview mode, the languages of administration, the response rate, weighting benchmarks beyond region, per-region sample sizes, or the rule by which sub-samples were selected.\", \"survey_date\": \"2026-08-23\", \"question\": \"How much IN TOTAL is the maximum you will spend on leisure travel (including airfare, accommodations and all other trip related spending) during the NEXT 12 MONTHS?\", \"instructions\": [\"Response line as printed with the question: 'Maximum I would spend on leisure travel (next 12 months): _________'. Results are reported in the dollar bands listed as the response options; the publisher does not state whether respondents chose a band or entered an amount that was then banded.\"], \"answer_options\": [\"$10,000 or more\", \"$5,000 - $9,999\", \"$2,000 - $4,999\", \"$1,000 - $1,999\", \"$500 - $999\", \"$100 - $499\", \"Under $100\"]}\n\n\nAllocate probability over these mutually exclusive, collectively exhaustive outcomes:\n\n\n\"$10,000 or more\"\n\n\"$5,000 - $9,999\"\n\n\"$2,000 - $4,999\"\n\n\"$1,000 - $1,999\"\n\n\"$500 - $999\"\n\n\"$100 - $499\"\n\n\"Under $100\"\n\n\nReturn a single JSON object mapping every displayed label to its probability.\nUse the exact labels, include zero-probability entries, and do not repeat keys.\nEach probability must be a number from 0 to 1. Their sum must be 1.\nUse probabilities, not percentages. Do not wrap the object in an \"answer\" field.\nExample of the required format: {\"$10,000 or more\": 1.0, \"$5,000 - $9,999\": 0.0, \"$2,000 - $4,999\": 0.0, \"$1,000 - $1,999\": 0.0, \"$500 - $999\": 0.0, \"$100 - $499\": 0.0, \"Under $100\": 0.0}\n",
+            "class_name": "Prompt"
+          },
+          "marginal_000_system_prompt": {
+            "text": "Estimate the probability that a randomly selected member of the described survey population selects each answer. Account for the population, location and survey date. Return a JSON object mapping each exact answer label to its probability. Use nonnegative numbers summing to 1.",
+            "class_name": "Prompt"
+          }
+        }
+      }
+    ],
+    "cost_audit": {
+      "state": "matched",
+      "results_cost_usd": 0.013984000000000002,
+      "reported_job_cost_usd": 0.0139,
+      "difference_usd": -8.400000000000248e-05,
+      "absolute_tolerance_usd": 0.0002,
+      "ratio": 0.9939931350114415,
+      "actual_debit_verified": false,
+      "job_uuid": "dd7d5922-f288-43f5-8351-2dab3a691397",
+      "failed_questions": 0
+    }
+  },
+  {
+    "model_key": "nemotron",
+    "reason": "Smoke usage records suggest reasoning tokens included in completion_tokens were charged a second time; full batch withheld pending billing clarification.",
+    "records": [
+      {
+        "id": "future-partners-formerly-destination-analysts-the-state-of-the-a--w202609--max_leisure_travel_spend_next_12m",
+        "question_name": "marginal_000",
+        "model_key": "nemotron",
+        "requested_model": "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B",
+        "returned_model": "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B",
+        "answer": {
+          "$10,000 or more": 0.142857,
+          "$5,000 - $9,999": 0.142857,
+          "$2,000 - $4,999": 0.142857,
+          "$1,000 - $1,999": 0.142857,
+          "$500 - $999": 0.142857,
+          "$100 - $499": 0.142857,
+          "Under $100": 0.142858
+        },
+        "generated_text": "{\n  \"$10,000 or more\": 0.142857,\n  \"$5,000 - $9,999\": 0.142857,\n  \"$2,000 - $4,999\": 0.142857,\n  \"$1,000 - $1,999\": 0.142857,\n  \"$500 - $999\": 0.142857,\n  \"$100 - $499\": 0.142857,\n  \"Under $100\": 0.142858\n}",
+        "cache_used": false,
+        "validated": true,
+        "usage": {
+          "completion_tokens": 264,
+          "prompt_tokens": 868,
+          "total_tokens": 1132,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 104,
+            "rejected_prediction_tokens": null
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cache_write_tokens": null,
+            "cached_tokens": 0
+          },
+          "estimated_cost": 0.0010148
+        },
+        "results_cost_usd": 0.001354,
+        "input_price_per_million_tokens": 0.5,
+        "output_price_per_million_tokens": 2.5,
+        "recorded_input_tokens": 868,
+        "recorded_output_tokens": 264,
+        "recorded_thinking_tokens": 104,
+        "prompt": {
+          "marginal_000_user_prompt": {
+            "text": "{\"audience\": \"Adult American travelers in the United States (all respondents, n=3,995 completed studies as printed on the slide; lower than the 4,018 printed on other full-sample slides, with no routing or exclusion stated), with this question asked of the full sample and no screen, subgroup restriction or split sample published. They were questioned by Future Partners for its monthly State of the American Traveler tracking study, September 2026 edition, fielded August 17 to 23, 2026, as a representative sample of adult American travelers in each of the four U.S. Census regions, with data weighted to reflect the actual population of each region and a stated confidence interval of plus or minus 1.55 percent; the September 2026 deck names no sponsor or funder, and the publisher states that 4,000+ fully completed studies are collected each wave (the deck's full-sample chart bases print 4,018 completed studies, with 4,002, 3,995 and 3,812 on individual slides; no wave total is published). The publisher does not publish a numeric minimum age, the traveler screening question, the sampling frame or panel source, the interview mode, the languages of administration, the response rate, weighting benchmarks beyond region, per-region sample sizes, or the rule by which sub-samples were selected.\", \"survey_date\": \"2026-08-23\", \"question\": \"How much IN TOTAL is the maximum you will spend on leisure travel (including airfare, accommodations and all other trip related spending) during the NEXT 12 MONTHS?\", \"instructions\": [\"Response line as printed with the question: 'Maximum I would spend on leisure travel (next 12 months): _________'. Results are reported in the dollar bands listed as the response options; the publisher does not state whether respondents chose a band or entered an amount that was then banded.\"], \"answer_options\": [\"$10,000 or more\", \"$5,000 - $9,999\", \"$2,000 - $4,999\", \"$1,000 - $1,999\", \"$500 - $999\", \"$100 - $499\", \"Under $100\"]}\n\n\nAllocate probability over these mutually exclusive, collectively exhaustive outcomes:\n\n\n\"$10,000 or more\"\n\n\"$5,000 - $9,999\"\n\n\"$2,000 - $4,999\"\n\n\"$1,000 - $1,999\"\n\n\"$500 - $999\"\n\n\"$100 - $499\"\n\n\"Under $100\"\n\n\nReturn a single JSON object mapping every displayed label to its probability.\nUse the exact labels, include zero-probability entries, and do not repeat keys.\nEach probability must be a number from 0 to 1. Their sum must be 1.\nUse probabilities, not percentages. Do not wrap the object in an \"answer\" field.\nExample of the required format: {\"$10,000 or more\": 1.0, \"$5,000 - $9,999\": 0.0, \"$2,000 - $4,999\": 0.0, \"$1,000 - $1,999\": 0.0, \"$500 - $999\": 0.0, \"$100 - $499\": 0.0, \"Under $100\": 0.0}\n",
+            "class_name": "Prompt"
+          },
+          "marginal_000_system_prompt": {
+            "text": "Estimate the probability that a randomly selected member of the described survey population selects each answer. Account for the population, location and survey date. Return a JSON object mapping each exact answer label to its probability. Use nonnegative numbers summing to 1.",
+            "class_name": "Prompt"
+          }
+        }
+      }
+    ],
+    "cost_audit": {
+      "state": "matched",
+      "results_cost_usd": 0.001354,
+      "reported_job_cost_usd": 0.0013,
+      "difference_usd": -5.400000000000001e-05,
+      "absolute_tolerance_usd": 0.0002,
+      "ratio": 0.9601181683899557,
+      "actual_debit_verified": false,
+      "job_uuid": "c082576f-8190-46b5-b281-46df245b9fe5",
+      "failed_questions": 0
+    }
+  },
+  {
+    "model_key": "seed",
+    "reason": "Smoke usage records suggest reasoning tokens included in completion_tokens were charged a second time; full batch withheld pending billing clarification.",
+    "records": [
+      {
+        "id": "future-partners-formerly-destination-analysts-the-state-of-the-a--w202609--max_leisure_travel_spend_next_12m",
+        "question_name": "marginal_000",
+        "model_key": "seed",
+        "requested_model": "ByteDance/Seed-2.0-pro",
+        "returned_model": "ByteDance/Seed-2.0-pro",
+        "answer": {
+          "$10,000 or more": 0.12,
+          "$5,000 - $9,999": 0.18,
+          "$2,000 - $4,999": 0.27,
+          "$1,000 - $1,999": 0.2,
+          "$500 - $999": 0.12,
+          "$100 - $499": 0.08,
+          "Under $100": 0.03
+        },
+        "generated_text": "{\"$10,000 or more\": 0.12, \"$5,000 - $9,999\": 0.18, \"$2,000 - $4,999\": 0.27, \"$1,000 - $1,999\": 0.20, \"$500 - $999\": 0.12, \"$100 - $499\": 0.08, \"Under $100\": 0.03}",
+        "cache_used": false,
+        "validated": true,
+        "usage": {
+          "completion_tokens": 566,
+          "prompt_tokens": 898,
+          "total_tokens": 1464,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": null,
+            "reasoning_tokens": 444,
+            "rejected_prediction_tokens": null
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cache_write_tokens": null,
+            "cached_tokens": 0
+          },
+          "estimated_cost": 0.002147
+        },
+        "results_cost_usd": 0.0034790000000000003,
+        "input_price_per_million_tokens": 0.5,
+        "output_price_per_million_tokens": 3.0,
+        "recorded_input_tokens": 898,
+        "recorded_output_tokens": 566,
+        "recorded_thinking_tokens": 444,
+        "prompt": {
+          "marginal_000_user_prompt": {
+            "text": "{\"audience\": \"Adult American travelers in the United States (all respondents, n=3,995 completed studies as printed on the slide; lower than the 4,018 printed on other full-sample slides, with no routing or exclusion stated), with this question asked of the full sample and no screen, subgroup restriction or split sample published. They were questioned by Future Partners for its monthly State of the American Traveler tracking study, September 2026 edition, fielded August 17 to 23, 2026, as a representative sample of adult American travelers in each of the four U.S. Census regions, with data weighted to reflect the actual population of each region and a stated confidence interval of plus or minus 1.55 percent; the September 2026 deck names no sponsor or funder, and the publisher states that 4,000+ fully completed studies are collected each wave (the deck's full-sample chart bases print 4,018 completed studies, with 4,002, 3,995 and 3,812 on individual slides; no wave total is published). The publisher does not publish a numeric minimum age, the traveler screening question, the sampling frame or panel source, the interview mode, the languages of administration, the response rate, weighting benchmarks beyond region, per-region sample sizes, or the rule by which sub-samples were selected.\", \"survey_date\": \"2026-08-23\", \"question\": \"How much IN TOTAL is the maximum you will spend on leisure travel (including airfare, accommodations and all other trip related spending) during the NEXT 12 MONTHS?\", \"instructions\": [\"Response line as printed with the question: 'Maximum I would spend on leisure travel (next 12 months): _________'. Results are reported in the dollar bands listed as the response options; the publisher does not state whether respondents chose a band or entered an amount that was then banded.\"], \"answer_options\": [\"$10,000 or more\", \"$5,000 - $9,999\", \"$2,000 - $4,999\", \"$1,000 - $1,999\", \"$500 - $999\", \"$100 - $499\", \"Under $100\"]}\n\n\nAllocate probability over these mutually exclusive, collectively exhaustive outcomes:\n\n\n\"$10,000 or more\"\n\n\"$5,000 - $9,999\"\n\n\"$2,000 - $4,999\"\n\n\"$1,000 - $1,999\"\n\n\"$500 - $999\"\n\n\"$100 - $499\"\n\n\"Under $100\"\n\n\nReturn a single JSON object mapping every displayed label to its probability.\nUse the exact labels, include zero-probability entries, and do not repeat keys.\nEach probability must be a number from 0 to 1. Their sum must be 1.\nUse probabilities, not percentages. Do not wrap the object in an \"answer\" field.\nExample of the required format: {\"$10,000 or more\": 1.0, \"$5,000 - $9,999\": 0.0, \"$2,000 - $4,999\": 0.0, \"$1,000 - $1,999\": 0.0, \"$500 - $999\": 0.0, \"$100 - $499\": 0.0, \"Under $100\": 0.0}\n",
+            "class_name": "Prompt"
+          },
+          "marginal_000_system_prompt": {
+            "text": "Estimate the probability that a randomly selected member of the described survey population selects each answer. Account for the population, location and survey date. Return a JSON object mapping each exact answer label to its probability. Use nonnegative numbers summing to 1.",
+            "class_name": "Prompt"
+          }
+        }
+      }
+    ],
+    "cost_audit": {
+      "state": "matched",
+      "results_cost_usd": 0.0034790000000000003,
+      "reported_job_cost_usd": 0.0034000000000000002,
+      "difference_usd": -7.900000000000008e-05,
+      "absolute_tolerance_usd": 0.0002,
+      "ratio": 0.9772923253808565,
+      "actual_debit_verified": false,
+      "job_uuid": "6ab1e029-ed61-43bf-97ce-52cff8d30f92",
+      "failed_questions": 0
+    }
+  },
+  {
+    "model_key": "gptoss",
+    "reason": "Smoke usage records suggest reasoning tokens included in completion_tokens were charged a second time; full batch withheld pending billing clarification.",
+    "records": [
+      {
+        "id": "future-partners-formerly-destination-analysts-the-state-of-the-a--w202609--max_leisure_travel_spend_next_12m",
+        "question_name": "marginal_000",
+        "model_key": "gptoss",
+        "requested_model": "openai/gpt-oss-120b",
+        "returned_model": "openai/gpt-oss-120b",
+        "answer": {
+          "$10,000 or more": 0.06,
+          "$5,000 - $9,999": 0.15,
+          "$2,000 - $4,999": 0.3,
+          "$1,000 - $1,999": 0.3,
+          "$500 - $999": 0.12,
+          "$100 - $499": 0.05,
+          "Under $100": 0.02
+        },
+        "generated_text": "{\"$10,000 or more\": 0.06, \"$5,000 - $9,999\": 0.15, \"$2,000 - $4,999\": 0.30, \"$1,000 - $1,999\": 0.30, \"$500 - $999\": 0.12, \"$100 - $499\": 0.05, \"Under $100\": 0.02}",
+        "cache_used": false,
+        "validated": true,
+        "usage": {
+          "completion_tokens": 545,
+          "prompt_tokens": 805,
+          "total_tokens": 1350,
+          "completion_time": 1.142531892,
+          "prompt_time": 0.056225008,
+          "queue_time": 0.091751858,
+          "total_time": 1.1987569,
+          "completion_tokens_details": {
+            "reasoning_tokens": 446
+          }
+        },
+        "results_cost_usd": 0.0007153499999999999,
+        "input_price_per_million_tokens": 0.15,
+        "output_price_per_million_tokens": 0.6,
+        "recorded_input_tokens": 805,
+        "recorded_output_tokens": 545,
+        "recorded_thinking_tokens": 446,
+        "prompt": {
+          "marginal_000_user_prompt": {
+            "text": "{\"audience\": \"Adult American travelers in the United States (all respondents, n=3,995 completed studies as printed on the slide; lower than the 4,018 printed on other full-sample slides, with no routing or exclusion stated), with this question asked of the full sample and no screen, subgroup restriction or split sample published. They were questioned by Future Partners for its monthly State of the American Traveler tracking study, September 2026 edition, fielded August 17 to 23, 2026, as a representative sample of adult American travelers in each of the four U.S. Census regions, with data weighted to reflect the actual population of each region and a stated confidence interval of plus or minus 1.55 percent; the September 2026 deck names no sponsor or funder, and the publisher states that 4,000+ fully completed studies are collected each wave (the deck's full-sample chart bases print 4,018 completed studies, with 4,002, 3,995 and 3,812 on individual slides; no wave total is published). The publisher does not publish a numeric minimum age, the traveler screening question, the sampling frame or panel source, the interview mode, the languages of administration, the response rate, weighting benchmarks beyond region, per-region sample sizes, or the rule by which sub-samples were selected.\", \"survey_date\": \"2026-08-23\", \"question\": \"How much IN TOTAL is the maximum you will spend on leisure travel (including airfare, accommodations and all other trip related spending) during the NEXT 12 MONTHS?\", \"instructions\": [\"Response line as printed with the question: 'Maximum I would spend on leisure travel (next 12 months): _________'. Results are reported in the dollar bands listed as the response options; the publisher does not state whether respondents chose a band or entered an amount that was then banded.\"], \"answer_options\": [\"$10,000 or more\", \"$5,000 - $9,999\", \"$2,000 - $4,999\", \"$1,000 - $1,999\", \"$500 - $999\", \"$100 - $499\", \"Under $100\"]}\n\n\nAllocate probability over these mutually exclusive, collectively exhaustive outcomes:\n\n\n\"$10,000 or more\"\n\n\"$5,000 - $9,999\"\n\n\"$2,000 - $4,999\"\n\n\"$1,000 - $1,999\"\n\n\"$500 - $999\"\n\n\"$100 - $499\"\n\n\"Under $100\"\n\n\nReturn a single JSON object mapping every displayed label to its probability.\nUse the exact labels, include zero-probability entries, and do not repeat keys.\nEach probability must be a number from 0 to 1. Their sum must be 1.\nUse probabilities, not percentages. Do not wrap the object in an \"answer\" field.\nExample of the required format: {\"$10,000 or more\": 1.0, \"$5,000 - $9,999\": 0.0, \"$2,000 - $4,999\": 0.0, \"$1,000 - $1,999\": 0.0, \"$500 - $999\": 0.0, \"$100 - $499\": 0.0, \"Under $100\": 0.0}\n",
+            "class_name": "Prompt"
+          },
+          "marginal_000_system_prompt": {
+            "text": "Estimate the probability that a randomly selected member of the described survey population selects each answer. Account for the population, location and survey date. Return a JSON object mapping each exact answer label to its probability. Use nonnegative numbers summing to 1.",
+            "class_name": "Prompt"
+          }
+        }
+      }
+    ],
+    "cost_audit": {
+      "state": "matched",
+      "results_cost_usd": 0.0007153499999999999,
+      "reported_job_cost_usd": 0.0006,
+      "difference_usd": -0.00011534999999999996,
+      "absolute_tolerance_usd": 0.0002,
+      "ratio": 0.8387502621094569,
+      "actual_debit_verified": false,
+      "job_uuid": "a5b371b8-837e-4e4c-90b6-03a7cfe0f3e3",
+      "failed_questions": 0
+    }
+  }
+]

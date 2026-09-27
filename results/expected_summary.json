@@ -63,6 +63,214 @@
       ],
       "wins_against_aaru": 34,
       "ties_against_aaru": 4
+    },
+    "sol": {
+      "label": "GPT-5.6 Sol",
+      "mean_tvd": 11.812066378000003,
+      "median_tvd": 9.163374999999998,
+      "mean_difference_from_aaru": 4.308593878,
+      "paired_family_bootstrap_95ci": [
+        2.702246698536748,
+        6.049468744510692
+      ],
+      "wins_against_aaru": 25,
+      "ties_against_aaru": 4
+    },
+    "luna": {
+      "label": "GPT-5.6 Luna",
+      "mean_tvd": 12.49487177125,
+      "median_tvd": 11.0,
+      "mean_difference_from_aaru": 4.99139927125,
+      "paired_family_bootstrap_95ci": [
+        3.2455254787997165,
+        6.754818079302395
+      ],
+      "wins_against_aaru": 28,
+      "ties_against_aaru": 2
+    },
+    "gpt54mini": {
+      "label": "GPT-5.4 mini",
+      "mean_tvd": 14.135232016099998,
+      "median_tvd": 12.350000000000001,
+      "mean_difference_from_aaru": 6.631759516100001,
+      "paired_family_bootstrap_95ci": [
+        4.685138536320086,
+        8.740037574550831
+      ],
+      "wins_against_aaru": 23,
+      "ties_against_aaru": 3
+    },
+    "opus": {
+      "label": "Claude Opus 5",
+      "mean_tvd": 10.6774305,
+      "median_tvd": 9.2,
+      "mean_difference_from_aaru": 3.1739579999999994,
+      "paired_family_bootstrap_95ci": [
+        1.725784404761905,
+        4.832194321957922
+      ],
+      "wins_against_aaru": 30,
+      "ties_against_aaru": 5
+    },
+    "sonnet": {
+      "label": "Claude Sonnet 5",
+      "mean_tvd": 12.5759965,
+      "median_tvd": 10.68685,
+      "mean_difference_from_aaru": 5.072524,
+      "paired_family_bootstrap_95ci": [
+        3.264366816646192,
+        6.965672756416859
+      ],
+      "wins_against_aaru": 26,
+      "ties_against_aaru": 2
+    },
+    "geminipro": {
+      "label": "Gemini 3.1 Pro preview",
+      "mean_tvd": 12.3451265,
+      "median_tvd": 10.050000000000004,
+      "mean_difference_from_aaru": 4.841654,
+      "paired_family_bootstrap_95ci": [
+        3.2410619974424555,
+        6.77423691887226
+      ],
+      "wins_against_aaru": 26,
+      "ties_against_aaru": 4
+    },
+    "geminilite": {
+      "label": "Gemini 3.5 Flash Lite",
+      "mean_tvd": 13.455690500000001,
+      "median_tvd": 11.55,
+      "mean_difference_from_aaru": 5.952218,
+      "paired_family_bootstrap_95ci": [
+        4.220559413978496,
+        7.7449164607364684
+      ],
+      "wins_against_aaru": 26,
+      "ties_against_aaru": 2
+    },
+    "grok46": {
+      "label": "Grok 4.6",
+      "mean_tvd": 12.4753565,
+      "median_tvd": 11.6,
+      "mean_difference_from_aaru": 4.971884,
+      "paired_family_bootstrap_95ci": [
+        3.086839322498945,
+        6.898375917631917
+      ],
+      "wins_against_aaru": 26,
+      "ties_against_aaru": 4
+    },
+    "grok420": {
+      "label": "Grok 4.20 reasoning",
+      "mean_tvd": 14.3116245,
+      "median_tvd": 11.868675,
+      "mean_difference_from_aaru": 6.808151999999999,
+      "paired_family_bootstrap_95ci": [
+        4.780414354707792,
+        8.797024385964912
+      ],
+      "wins_against_aaru": 20,
+      "ties_against_aaru": 1
+    },
+    "deepseekpro": {
+      "label": "DeepSeek V4 Pro",
+      "mean_tvd": 16.538032500000003,
+      "median_tvd": 13.130125,
+      "mean_difference_from_aaru": 9.03456,
+      "paired_family_bootstrap_95ci": [
+        5.933218138043478,
+        12.126548887499997
+      ],
+      "wins_against_aaru": 21,
+      "ties_against_aaru": 2
+    },
+    "deepseekflash": {
+      "label": "DeepSeek V4.1 Flash",
+      "mean_tvd": 14.267083500000002,
+      "median_tvd": 12.429275,
+      "mean_difference_from_aaru": 6.763611000000001,
+      "paired_family_bootstrap_95ci": [
+        4.711770498366013,
+        8.737856467889907
+      ],
+      "wins_against_aaru": 21,
+      "ties_against_aaru": 2
+    },
+    "minimax": {
+      "label": "MiniMax M3",
+      "mean_tvd": 13.670044500000001,
+      "median_tvd": 11.890374999999999,
+      "mean_difference_from_aaru": 6.1665719999999995,
+      "paired_family_bootstrap_95ci": [
+        4.125659333333333,
+        8.296404834488227
+      ],
+      "wins_against_aaru": 18,
+      "ties_against_aaru": 7
+    },
+    "gemma": {
+      "label": "Gemma 4 31B",
+      "mean_tvd": 17.0365735,
+      "median_tvd": 15.000000000000002,
+      "mean_difference_from_aaru": 9.533101000000002,
+      "paired_family_bootstrap_95ci": [
+        6.295633143748144,
+        12.989794632783516
+      ],
+      "wins_against_aaru": 18,
+      "ties_against_aaru": 2
+    }
+  },
+  "incomplete_models": {
+    "gpt41mini": {
+      "label": "GPT-4.1 mini",
+      "valid_questions": 99,
+      "mean_tvd_observed_only": 16.521936363636364,
+      "aaru_mean_on_same_observed_questions": 7.284546464646464,
+      "full_sample_mean_tvd_bounds": [
+        16.356717,
+        17.356717
+      ]
+    },
+    "haiku": {
+      "label": "Claude Haiku 4.5",
+      "valid_questions": 79,
+      "mean_tvd_observed_only": 18.544954430379747,
+      "aaru_mean_on_same_observed_questions": 8.122282278481011,
+      "full_sample_mean_tvd_bounds": [
+        14.650514000000001,
+        35.650514
+      ]
+    },
+    "kimi": {
+      "label": "Kimi K2.6",
+      "valid_questions": 95,
+      "mean_tvd_observed_only": 14.68038052631579,
+      "aaru_mean_on_same_observed_questions": 7.438668947368421,
+      "full_sample_mean_tvd_bounds": [
+        13.9463615,
+        18.946361500000002
+      ]
+    },
+    "llama": {
+      "label": "Llama 4 Maverick",
+      "valid_questions": 19,
+      "mean_tvd_observed_only": 23.155663157894736,
+      "aaru_mean_on_same_observed_questions": 8.415542105263158,
+      "full_sample_mean_tvd_bounds": [
+        4.399576,
+        85.399576
+      ]
+    },
+    "nova": {
+      "label": "Amazon Nova 2 Lite",
+      "valid_questions": 99,
+      "mean_tvd_observed_only": 20.330204920169436,
+      "aaru_mean_on_same_observed_questions": 7.284546464646464,
+      "full_sample_mean_tvd_bounds": [
+        20.126902870967744,
+        21.126902870967744
+      ]
     }
   },
   "astra_effort_comparison": {
@@ -93,14 +301,104 @@
     "gemini": {
       "first_submission_valid": 97,
       "final_valid": 100
+    },
+    "sol": {
+      "first_submission_valid": 100,
+      "final_valid": 100
+    },
+    "luna": {
+      "first_submission_valid": 100,
+      "final_valid": 100
+    },
+    "gpt54mini": {
+      "first_submission_valid": 100,
+      "final_valid": 100
+    },
+    "gpt41mini": {
+      "first_submission_valid": 99,
+      "final_valid": 99
+    },
+    "opus": {
+      "first_submission_valid": 100,
+      "final_valid": 100
+    },
+    "sonnet": {
+      "first_submission_valid": 99,
+      "final_valid": 100
+    },
+    "haiku": {
+      "first_submission_valid": 78,
+      "final_valid": 79
+    },
+    "geminipro": {
+      "first_submission_valid": 100,
+      "final_valid": 100
+    },
+    "geminilite": {
+      "first_submission_valid": 100,
+      "final_valid": 100
+    },
+    "grok46": {
+      "first_submission_valid": 100,
+      "final_valid": 100
+    },
+    "grok420": {
+      "first_submission_valid": 100,
+      "final_valid": 100
+    },
+    "deepseekpro": {
+      "first_submission_valid": 100,
+      "final_valid": 100
+    },
+    "deepseekflash": {
+      "first_submission_valid": 100,
+      "final_valid": 100
+    },
+    "minimax": {
+      "first_submission_valid": 97,
+      "final_valid": 100
+    },
+    "kimi": {
+      "first_submission_valid": 89,
+      "final_valid": 95
+    },
+    "llama": {
+      "first_submission_valid": 15,
+      "final_valid": 19
+    },
+    "nova": {
+      "first_submission_valid": 98,
+      "final_valid": 99
+    },
+    "gemma": {
+      "first_submission_valid": 100,
+      "final_valid": 100
     }
   },
-  "first_submission_common_questions": 97,
+  "first_submission_common_questions": 11,
   "first_submission_common_mean_tvd": {
-    "aaru": 7.647674742268041,
-    "astra": 9.212928411340206,
-    "astra_medium": 9.030446907216495,
-    "fable": 10.53573969072165,
-    "gemini": 11.186359278350515
+    "aaru": 7.976618181818182,
+    "astra": 9.577736363636362,
+    "astra_medium": 8.987700000000002,
+    "fable": 11.886654545454546,
+    "gemini": 12.936181818181819,
+    "sol": 11.922127272727272,
+    "luna": 11.623481818181817,
+    "gpt54mini": 18.17526363636364,
+    "gpt41mini": 17.85460909090909,
+    "opus": 13.05618181818182,
+    "sonnet": 16.49358181818182,
+    "haiku": 19.2177,
+    "geminipro": 14.253590909090907,
+    "geminilite": 17.033336363636362,
+    "grok46": 14.808609090909094,
+    "grok420": 15.966436363636365,
+    "deepseekpro": 17.909154545454548,
+    "deepseekflash": 15.4919,
+    "minimax": 15.33068181818182,
+    "kimi": 17.640136363636362,
+    "llama": 23.542236363636366,
+    "nova": 22.16667272727273,
+    "gemma": 15.575327272727275
   }
 }

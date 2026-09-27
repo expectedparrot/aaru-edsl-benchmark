@@ -1,0 +1,171 @@
+[
+  {
+    "model_key": "gemini25",
+    "stage": "smoke",
+    "missing_valid_distributions": 1,
+    "job_status": "partial_failed",
+    "reported_exception_counts": {
+      "validation_error": 1
+    },
+    "error_report_saved": true
+  },
+  {
+    "model_key": "gemini",
+    "stage": "full",
+    "missing_valid_distributions": 3,
+    "job_status": "partial_failed",
+    "reported_exception_counts": {
+      "validation_error": 3
+    },
+    "error_report_saved": true
+  },
+  {
+    "model_key": "gpt41mini",
+    "stage": "full",
+    "missing_valid_distributions": 1,
+    "job_status": "partial_failed",
+    "reported_exception_counts": {
+      "validation_error": 1
+    },
+    "error_report_saved": true
+  },
+  {
+    "model_key": "gpt41mini",
+    "stage": "retry",
+    "missing_valid_distributions": 1,
+    "job_status": "partial_failed",
+    "reported_exception_counts": {
+      "validation_error": 1
+    },
+    "error_report_saved": true
+  },
+  {
+    "model_key": "haiku",
+    "stage": "full",
+    "missing_valid_distributions": 22,
+    "job_status": "partial_failed",
+    "reported_exception_counts": {
+      "validation_error": 22
+    },
+    "error_report_saved": true
+  },
+  {
+    "model_key": "haiku",
+    "stage": "retry",
+    "missing_valid_distributions": 21,
+    "job_status": "partial_failed",
+    "reported_exception_counts": {
+      "validation_error": 21
+    },
+    "error_report_saved": true
+  },
+  {
+    "model_key": "kimi",
+    "stage": "full",
+    "missing_valid_distributions": 11,
+    "job_status": "completed",
+    "reported_exception_counts": {},
+    "error_report_saved": false
+  },
+  {
+    "model_key": "kimi",
+    "stage": "retry",
+    "missing_valid_distributions": 5,
+    "job_status": "partial_failed",
+    "reported_exception_counts": {
+      "timeout": 5
+    },
+    "error_report_saved": true
+  },
+  {
+    "model_key": "llama33",
+    "stage": "smoke",
+    "missing_valid_distributions": 1,
+    "job_status": "partial_failed",
+    "reported_exception_counts": {
+      "JobStalledError": 1
+    },
+    "error_report_saved": true
+  },
+  {
+    "model_key": "llama",
+    "stage": "full",
+    "missing_valid_distributions": 85,
+    "job_status": "partial_failed",
+    "reported_exception_counts": {
+      "validation_error": 85
+    },
+    "error_report_saved": true
+  },
+  {
+    "model_key": "llama",
+    "stage": "retry",
+    "missing_valid_distributions": 81,
+    "job_status": "partial_failed",
+    "reported_exception_counts": {
+      "validation_error": 81
+    },
+    "error_report_saved": true
+  },
+  {
+    "model_key": "minimax",
+    "stage": "full",
+    "missing_valid_distributions": 3,
+    "job_status": "partial_failed",
+    "reported_exception_counts": {
+      "rate_limit": 2,
+      "validation_error": 1
+    },
+    "error_report_saved": true
+  },
+  {
+    "model_key": "mistral",
+    "stage": "smoke",
+    "missing_valid_distributions": 1,
+    "job_status": "partial_failed",
+    "reported_exception_counts": {
+      "validation_error": 1
+    },
+    "error_report_saved": true
+  },
+  {
+    "model_key": "nova",
+    "stage": "full",
+    "missing_valid_distributions": 2,
+    "job_status": "partial_failed",
+    "reported_exception_counts": {
+      "validation_error": 2
+    },
+    "error_report_saved": true
+  },
+  {
+    "model_key": "nova",
+    "stage": "retry",
+    "missing_valid_distributions": 1,
+    "job_status": "partial_failed",
+    "reported_exception_counts": {
+      "validation_error": 1
+    },
+    "error_report_saved": true
+  },
+  {
+    "model_key": "phi",
+    "stage": "smoke",
+    "missing_valid_distributions": 1,
+    "job_status": "partial_failed",
+    "reported_exception_counts": {
+      "validation_error": 1
+    },
+    "error_report_saved": true
+  },
+  {
+    "model_key": "sonnet",
+    "stage": "full",
+    "missing_valid_distributions": 1,
+    "job_status": "partial_failed",
+    "reported_exception_counts": {
+      "validation_error": 1
+    },
+    "error_report_saved": true
+  }
+]

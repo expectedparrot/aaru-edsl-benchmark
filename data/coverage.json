@@ -1,0 +1,226 @@
+{
+  "astra": {
+    "attempted_questions": 100,
+    "valid_questions": 100,
+    "missing_ids": []
+  },
+  "astra_medium": {
+    "attempted_questions": 100,
+    "valid_questions": 100,
+    "missing_ids": []
+  },
+  "fable": {
+    "attempted_questions": 100,
+    "valid_questions": 100,
+    "missing_ids": []
+  },
+  "gemini": {
+    "attempted_questions": 100,
+    "valid_questions": 100,
+    "missing_ids": []
+  },
+  "sol": {
+    "attempted_questions": 100,
+    "valid_questions": 100,
+    "missing_ids": []
+  },
+  "luna": {
+    "attempted_questions": 100,
+    "valid_questions": 100,
+    "missing_ids": []
+  },
+  "gpt54mini": {
+    "attempted_questions": 100,
+    "valid_questions": 100,
+    "missing_ids": []
+  },
+  "gpt41mini": {
+    "attempted_questions": 100,
+    "valid_questions": 99,
+    "missing_ids": [
+      "the-cmo-survey-duke-fuqua-deloitte-ama--r1--q22"
+    ]
+  },
+  "opus": {
+    "attempted_questions": 100,
+    "valid_questions": 100,
+    "missing_ids": []
+  },
+  "sonnet": {
+    "attempted_questions": 100,
+    "valid_questions": 100,
+    "missing_ids": []
+  },
+  "haiku": {
+    "attempted_questions": 100,
+    "valid_questions": 79,
+    "missing_ids": [
+      "ap-norc-center-monthly-poll-topline-july-2026-ap-norc-center-pol--w202602--scam10-your-bank-or-credit-card-company",
+      "bank-of-italy-survey-on-inflation-and-growth-expectations-sige--w202604--tab-c6",
+      "energy-consumers-australia-energy-consumer-sentiment-survey-ecss--w202607--q6a",
+      "essential-report-essential-research-australia--w202604--e1166-7",
+      "full-dnr26-americas-2-canada-french-tva-nouvelles-lcn-trust",
+      "full-dnr26-americas-asia-pacific-1-peru-brand-trust-el-peruano",
+      "full-dnr26-europe-8a-netherlands-brand-trust-de-telegraaf",
+      "hankook-research-public-opinion-in-public-opinion-regular-report--w202608-3--c17",
+      "ipsos-consumer-tracker-biweekly-us-consumer-omnibus-topline-ipso--w202606--q10d",
+      "ipsos-consumer-tracker-us-biweekly-ish-waves-topline-pdfs--w202603--q8a",
+      "ipsos-consumer-tracker-us-biweekly-ish-waves-topline-pdfs--w202603-2--q9",
+      "ipsos-consumer-tracker-us-biweekly-ish-waves-topline-pdfs--w202606-2--q7a-clothing",
+      "ofgem-citizens-advice-energy-consumer-satisfaction-survey-bmg-in--r1--c9d-4",
+      "pew-research-center-american-trends-panel-worker-surveys-social---r1-p2--timeself-b",
+      "purdue-university-cme-group-ag-economy-barometer-monthly-report--r1--cash-rents-2027",
+      "rbi-consumer-confidence-survey-urban-and-rural-and-inflation-exp--w202604--uccs-table-8-one-year-ahead-expectation",
+      "reuters-institute-digital-news-report-brand-trust-by-named-news---r1--q6-2018-trust-belgium-french-france-2",
+      "reuters-institute-digital-news-report-brand-trust-by-named-news---r1--q6-2018-trust-united-kingdom-other-regional-or-local-newspaper",
+      "reuters-institute-digital-news-report-brand-trust-by-named-news---r1-p2--q6-2018-trust-czech-republic-r12",
+      "t2-kff-january-health-tracking-poll-q4b-health-costs-versus-utilities",
+      "the-cmo-survey-duke-fuqua-deloitte-ama--r1--q22"
+    ]
+  },
+  "geminipro": {
+    "attempted_questions": 100,
+    "valid_questions": 100,
+    "missing_ids": []
+  },
+  "geminilite": {
+    "attempted_questions": 100,
+    "valid_questions": 100,
+    "missing_ids": []
+  },
+  "grok46": {
+    "attempted_questions": 100,
+    "valid_questions": 100,
+    "missing_ids": []
+  },
+  "grok420": {
+    "attempted_questions": 100,
+    "valid_questions": 100,
+    "missing_ids": []
+  },
+  "deepseekpro": {
+    "attempted_questions": 100,
+    "valid_questions": 100,
+    "missing_ids": []
+  },
+  "deepseekflash": {
+    "attempted_questions": 100,
+    "valid_questions": 100,
+    "missing_ids": []
+  },
+  "minimax": {
+    "attempted_questions": 100,
+    "valid_questions": 100,
+    "missing_ids": []
+  },
+  "kimi": {
+    "attempted_questions": 100,
+    "valid_questions": 95,
+    "missing_ids": [
+      "energy-consumers-australia-energy-consumer-sentiment-survey-ecss--w202607--a7aa",
+      "energy-consumers-australia-energy-consumer-sentiment-survey-ecss--w202607--q6a",
+      "ipsos-consumer-tracker-biweekly-us-consumer-omnibus-topline-ipso--w202605--q11",
+      "ism-manufacturing-pmi-and-services-pmi-report-on-business--r1--manufacturing-new-export-orders",
+      "university-of-michigan-surveys-of-consumers-monthly-tables-all-h--r1--table-20"
+    ]
+  },
+  "llama": {
+    "attempted_questions": 100,
+    "valid_questions": 19,
+    "missing_ids": [
+      "airlines-for-america-air-travelers-in-america-ipsos-knowledgepan--r1--travel-expectation-2026",
+      "ap-norc-center-monthly-poll-topline-july-2026-ap-norc-center-pol--r1--eco9-started-buying-generic-or-store-brands",
+      "ap-norc-center-monthly-poll-topline-july-2026-ap-norc-center-pol--r1--eco9-stopped-buying-certain-grocery-items",
+      "ap-norc-center-monthly-poll-topline-july-2026-ap-norc-center-pol--w202602--scam10-your-bank-or-credit-card-company",
+      "ap-norc-center-monthly-poll-topline-july-2026-ap-norc-center-pol--w202602-2--gender2-a-promotion-or-recognition-at-work",
+      "ap-norc-feb-gender-discrimination-promotion-topline",
+      "ap-norc-feb-health-care-cost-stress-topline",
+      "ash-action-on-smoking-and-health-smokefree-gb-adult-and-youth-su--r1--youth-fig23-vaping",
+      "bank-of-italy-survey-on-inflation-and-growth-expectations-sige--w202604--tab-c6",
+      "consumer-reports-american-experiences-survey-aes-toplines--w202602--tpb5-second",
+      "consumer-reports-american-experiences-survey-aes-toplines--w202603--bill2",
+      "consumer-reports-american-experiences-survey-aes-toplines--w202603--pet2",
+      "consumer-reports-american-experiences-survey-aes-toplines--w202603--pet4",
+      "consumer-reports-american-experiences-survey-aes-toplines--w202603-2--auto5-info",
+      "consumer-reports-american-experiences-survey-aes-toplines--w202603-2--sleep6",
+      "dallas-fed-texas-business-outlook-surveys-manufacturing-service---w202604--sq1-tssos",
+      "deloitte-2026-back-to-school-survey-2-clothing-channel-preference",
+      "energy-consumers-australia-energy-consumer-sentiment-survey-ecss--w202607--a14-b",
+      "energy-consumers-australia-energy-consumer-sentiment-survey-ecss--w202607--q35-h",
+      "energy-consumers-australia-energy-consumer-sentiment-survey-ecss--w202607--q50-a",
+      "energy-consumers-australia-energy-consumer-sentiment-survey-ecss--w202607--q6a",
+      "essential-report-essential-research-australia--r1--e0-local-sporting-clubs",
+      "essential-report-essential-research-australia--w202604--e1166-7",
+      "essential-report-essential-research-australia--w202606--e1178-one-nation-is-backed-by-billionaire-gina-reinhardt-who-has-s",
+      "fed-senior-loan-officer-opinion-survey-2-q19-auto-loan-standards",
+      "fed-senior-loan-officer-opinion-survey-2-q2a-spreads-large-middle-market",
+      "fed-senior-loan-officer-opinion-survey-2026-07-ci-small-firms-credit-line-costs-all-respondents",
+      "federal-reserve-senior-loan-officer-opinion-survey-on-bank-lendi--r1--q5ag",
+      "federal-reserve-senior-loan-officer-opinion-survey-on-bank-lendi--r1-p2--q28b",
+      "fsa-consumer-insights-tracker-yougov-for-food-standards-agency--w202605--q6-new1-5-jan",
+      "full-dnr26-asia-pacific-2-indonesia-brand-trust-tribunnews",
+      "full-dnr26-europe-7-ireland-brand-trust-newstalk",
+      "full-dnr26-europe-8a-netherlands-brand-trust-de-telegraaf",
+      "full-eb105-france-s06-qa13-2b",
+      "full-eb105-italy-s05-qa11-4",
+      "full-scoos-june-2026-funding-terms-1-q52-most-favored-maximum-maturity",
+      "future-partners-formerly-destination-analysts-the-state-of-the-a--w202608--days-available",
+      "hankook-research-public-opinion-in-public-opinion-regular-report--w202608-3--c17",
+      "ific-food-health-survey-and-ific-spotlight-surveys--w202606--q10-chemicals-in-food-packaging",
+      "ipsos-consumer-tracker-biweekly-us-consumer-omnibus-topline-ipso--w202605--q11",
+      "ipsos-consumer-tracker-biweekly-us-consumer-omnibus-topline-ipso--w202606--q10d",
+      "ipsos-consumer-tracker-us-biweekly-ish-waves-topline-pdfs--w202603--q8a",
+      "ipsos-consumer-tracker-us-biweekly-ish-waves-topline-pdfs--w202603-2--q9",
+      "ipsos-consumer-tracker-us-biweekly-ish-waves-topline-pdfs--w202604-2--q6a",
+      "ipsos-consumer-tracker-us-biweekly-ish-waves-topline-pdfs--w202606-2--q7a-clothing",
+      "ism-manufacturing-pmi-and-services-pmi-report-on-business--r1--manufacturing-new-export-orders",
+      "kansas-city-fed-tenth-district-manufacturing-survey--w202604--t1-inventories-finished-goods-6mo",
+      "kff-tracking-poll-on-health-information-and-trust--w202602--q23",
+      "kff-tracking-poll-on-health-information-and-trust--w202602--q4a",
+      "kff-tracking-poll-on-health-information-and-trust--w202603--q7c",
+      "muck-rack-state-of-journalism-2026-tiktok-content-fairness-trust",
+      "natural-resources-canada-ekos-canadians-awareness-knowledge-and---r1--q24p",
+      "natural-resources-canada-ekos-canadians-awareness-knowledge-and---r1--q24q",
+      "ofgem-citizens-advice-energy-consumer-satisfaction-survey-bmg-in--r1--b6i",
+      "ofgem-citizens-advice-energy-consumer-satisfaction-survey-bmg-in--r1--c9d-4",
+      "ons-opinions-and-lifestyle-survey-public-opinions-and-social-tre--w202605--hf-table-7",
+      "ons-opinions-and-lifestyle-survey-public-opinions-and-social-tre--w202607--hf-table-7",
+      "pew-research-center-american-trends-panel-worker-surveys-social---r1-p2--timeself-b",
+      "pew-research-center-internet-technology-toplines-americans-socia--r1--chatspec-cpt",
+      "philadelphia-fed-manufacturing-business-outlook-2026-wage-compensation-plan-adjustment-july-2026",
+      "philadelphia-fed-manufacturing-business-outlook-survey--r1--sq2a",
+      "purdue-university-cme-group-ag-economy-barometer-monthly-report--r1--cash-rents-2027",
+      "rbi-consumer-confidence-survey-urban-and-rural-and-inflation-exp--w202604--uccs-table-8-one-year-ahead-expectation",
+      "research-co-canada-poll-detailed-tables--w202609--price-gasoline",
+      "reuters-institute-digital-news-report-brand-trust-by-named-news---r1--q6-2018-trust-belgium-french-france-2",
+      "reuters-institute-digital-news-report-brand-trust-by-named-news---r1-p2--q6-2018-trust-czech-republic-r12",
+      "seton-hall-sports-poll-sharkey-institute--r1--q7a",
+      "t2-kff-january-health-tracking-poll-q4b-health-costs-versus-utilities",
+      "t2-pew-ai-use-study-claude-use",
+      "the-50-million-gen-z-s-lgbtq-identity",
+      "the-cmo-survey-duke-fuqua-deloitte-ama--r1--q22",
+      "the-cmo-survey-duke-fuqua-deloitte-ama--r1-p2--q63",
+      "the-conference-board-measure-of-ceo-2-q3-2026-capital-spending-plans",
+      "university-of-michigan-surveys-of-consumers-monthly-tables-all-h--r1--table-20",
+      "university-of-michigan-surveys-of-consumers-monthly-tables-all-h--wfebruary-2026--table-8",
+      "us-iran-agreement-expectations-topline",
+      "usc-dornsife-labarometer-mobility-and-sustainabi-w6-private-vehicle-airport",
+      "visitbritain-visitengland-domestic-sentiment-tracker--w202603--vb13a",
+      "visitbritain-visitengland-domestic-sentiment-tracker--w202605--vb7f",
+      "yougov-ratings-us-brands-2026q2--p08--sensodyne",
+      "yougov-ratings-us-brands-2026q2--p46--hubble"
+    ]
+  },
+  "nova": {
+    "attempted_questions": 100,
+    "valid_questions": 99,
+    "missing_ids": [
+      "the-cmo-survey-duke-fuqua-deloitte-ama--r1--q22"
+    ]
+  },
+  "gemma": {
+    "attempted_questions": 100,
+    "valid_questions": 100,
+    "missing_ids": []
+  }
+}

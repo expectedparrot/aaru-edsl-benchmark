@@ -4,10 +4,11 @@ import json
 import math
 import os
 import warnings
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from .data import ROOT, read, write
-from .protocol import MODELS, make_job
+from .protocol import MODELS, BENCHMARK_MODELS, SCREENED_OUT, make_job
 
 class CostReconciliationWarning(UserWarning):
     pass
@@ -40,8 +41,30 @@ def reconcile(results_cost, reported, complete=True, emit_warning=True):
         warnings.warn(f'Results cost ${results_cost:.5f} differs from reported job cost ${reported:.5f}; answers are preserved.', CostReconciliationWarning)
     return record
 
+def token_accounting_concern(record):
+    """Detect inclusive completion tokens recorded again alongside reasoning.
+
+    Restrict to routes where this pattern was observed; provider accounting
+    conventions differ. This is evidence to investigate, not a verified debit.
+    """
+    if MODELS[record['model_key']]['service'] not in ('deep_infra', 'groq'):
+        return None
+    usage = record.get('usage') or {}
+    prompt, completion, total = (usage.get(k) for k in ('prompt_tokens', 'completion_tokens', 'total_tokens'))
+    thinking = record.get('recorded_thinking_tokens')
+    if not all(isinstance(v, (int, float)) for v in (prompt, completion, total, thinking)):
+        return None
+    if not (thinking > 0 and total == prompt + completion and record.get('recorded_output_tokens') == completion):
+        return None
+    price = record.get('output_price_per_million_tokens')
+    return {'model_key': record['model_key'], 'id': record['id'],
+        'reason': 'Completion tokens reconcile total usage but are recorded alongside additional thinking tokens.',
+        'completion_tokens': completion, 'thinking_tokens': thinking,
+        'possible_duplicate_token_cost_usd': thinking * price / 1e6 if isinstance(price, (float, int)) else None,
+        'actual_debit_verified': False}
+
 def submit(run, env_file, stage, allow_paid, model_keys=None):
-    keys = list(MODELS) if model_keys is None else list(model_keys)
+    keys = list(BENCHMARK_MODELS) if model_keys is None else list(model_keys)
     if not keys or len(set(keys)) != len(keys) or any(k not in MODELS for k in keys):
         raise ValueError('Select distinct known model configurations')
     if not allow_paid:
@@ -51,7 +74,10 @@ def submit(run, env_file, stage, allow_paid, model_keys=None):
     questions = sample[:1] if stage == 'smoke' else sample[1:]
     if stage == 'full':
         for key in keys:
-            if not (run / f'{key}_smoke/records.json').exists():
+            if key in SCREENED_OUT:
+                raise ValueError(f'{key}: full inference withheld: {SCREENED_OUT[key]}')
+            path = run / f'{key}_smoke/records.json'
+            if not path.exists() or len(read(path)) != 1 or read(path)[0]['id'] != sample[0]['id']:
                 raise ValueError('Complete and retrieve smoke runs for selected configurations before submitting the remaining 99 questions.')
     coop = client(env_file)
     coop.get_balance()  # Authenticate before submitting anything.
@@ -155,29 +181,81 @@ def status(run, env_file):
                 isinstance(r['results_cost_usd'],(float,int)) and math.isfinite(r['results_cost_usd']) and
                 all(isinstance(r[k],(float,int)) and math.isfinite(r[k]) for k in
                     ('input_price_per_million_tokens','output_price_per_million_tokens')) for r in records)
-            audit = reconcile(result.compute_job_cost(), reported, info['status']=='completed' and metadata_complete, emit_warning=False)
+            audit = reconcile(result.compute_job_cost(), reported, info['status']=='completed' and metadata_complete and not failures, emit_warning=False)
             audit['job_uuid'] = str(receipt['uuid'])
             audit['failed_questions'] = len(failures)
             write(folder/'cost_audit.json', audit)
+            if info.get('latest_job_run_details',{}).get('error_report_uuid'):
+                try:
+                    (folder/'error_report.md').write_text(coop.get_error_report_markdown(receipt['uuid']))
+                except Exception as exc:
+                    warnings.warn(f'{folder.name}: Results saved, but error report retrieval failed ({type(exc).__name__}).')
             if audit['state']=='discrepancy':
                 warnings.warn(f"Job {receipt['uuid']}: Results cost ${audit['results_cost_usd']:.5f} differs from reported job cost ${reported:.5f}; answers and audit saved.", CostReconciliationWarning)
 
 def archive(run):
     forecasts, audits = [], []
-    for key in MODELS:
+    coverage = {}
+    sample = read(ROOT/'data/sample.json')
+    names_to_ids = {q['question_name']: q['id'] for q in sample}
+    for key in BENCHMARK_MODELS:
+        final_failures = []
         for stage in ('smoke','full','retry'):
             folder = run/f'{key}_{stage}'
-            if stage=='retry' and not folder.exists(): continue
+            if stage=='retry' and not folder.exists():
+                if final_failures:
+                    raise ValueError(f'{key}: complete the one bounded retry before archiving')
+                continue
             forecasts.extend({**r, 'stage': stage} for r in read(folder/'records.json'))
             audits.append({'model_key': key, 'stage': stage, **read(folder/'cost_audit.json')})
-    expected = {(key,q['id']) for key in MODELS for q in read(ROOT/'data/sample.json')}
+            stage_failures = read(folder/'failures.json') if (folder/'failures.json').exists() else []
+            if stage=='smoke' and stage_failures:
+                raise ValueError(f'{key}: smoke screening failed')
+            final_failures = stage_failures
+            expected_names = set(names_to_ids) - {sample[0]['question_name']} if stage=='full' else None
+            if expected_names is not None:
+                attempted = {q['question_name'] for q in read(folder/'jobs.json')['survey']['questions']}
+                if attempted != expected_names:
+                    raise ValueError(f'{key}: full batch did not attempt exactly the remaining 99 questions')
+        coverage[key] = {'attempted_questions': len(sample),
+            'valid_questions': sum(r['model_key']==key for r in forecasts),
+            'missing_ids': sorted(names_to_ids[f['question_name']] for f in final_failures)}
+    expected = {(key,q['id']) for key in BENCHMARK_MODELS for q in read(ROOT/'data/sample.json')}
     actual = [(r['model_key'],r['id']) for r in forecasts]
-    if set(actual)!=expected or len(actual)!=len(expected):
-        raise ValueError('Archive must contain exactly 100 unique forecasts per model')
+    missing = {(key,qid) for key,c in coverage.items() for qid in c['missing_ids']}
+    if set(actual) & missing or set(actual) | missing != expected or len(actual)!=len(set(actual)):
+        raise ValueError('Archive must account for every question with a unique forecast or a documented final failure')
     write(ROOT/'data/forecasts.json', forecasts)
+    write(ROOT/'data/coverage.json', coverage)
     write(ROOT/'data/cost_audit.json', audits)
+    screening = []
+    for key, reason in SCREENED_OUT.items():
+        folder = run/f'{key}_smoke'
+        screening.append({'model_key': key, 'reason': reason,
+            'records': read(folder/'records.json'), 'cost_audit': read(folder/'cost_audit.json')})
+    write(ROOT/'data/screening.json', screening)
+    usage_concerns = [finding for r in forecasts + [r for s in screening for r in s['records']]
+                      if (finding := token_accounting_concern(r)) is not None]
+    write(ROOT/'data/token_accounting_concerns.json', usage_concerns)
     failures = [r for p in sorted(run.glob('*/failures.json')) for r in read(p)]
     write(ROOT/'data/failures.json', failures)
+    diagnostics = []
+    for p in sorted(run.glob('*/failures.json')):
+        if not read(p): continue
+        folder = p.parent
+        types = Counter()
+        report_path = folder/'error_report.md'
+        if report_path.exists():
+            for line in report_path.read_text().split('## Exception Details')[0].splitlines():
+                cells = [s.strip() for s in line.strip().strip('|').split('|')]
+                if line.startswith('|') and len(cells)==5 and cells[-1].isdigit():
+                    types[cells[0]] += int(cells[-1])
+        info = read(folder/'status.json') if (folder/'status.json').exists() else {}
+        key, stage = folder.name.rsplit('_',1)
+        diagnostics.append({'model_key':key, 'stage':stage, 'missing_valid_distributions':len(read(p)),
+            'job_status':info.get('status'), 'reported_exception_counts':dict(types),
+            'error_report_saved':report_path.exists()})
+    write(ROOT/'data/failure_diagnostics.json', diagnostics)
     manifest = {'files': {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
                   for p in sorted((ROOT/'data').iterdir()) if p.is_file() and p.name!='manifest.json'}}
     write(ROOT/'data/manifest.json', manifest)
