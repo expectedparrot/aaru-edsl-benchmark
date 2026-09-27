@@ -1,0 +1,280 @@
+[
+  {
+    "id": "philadelphia-fed-nonmanufacturing-business-outlook-survey-nbos--w202605--sq1",
+    "configuration": "philadelphia-fed-nonmanufacturing-business-outlook-survey-nbos--w202605",
+    "series": "philadelphia-fed-nonmanufacturing-business-outlook-survey-nbos",
+    "cluster": 84,
+    "industry": "b2b_professional_services",
+    "type": "general_attitudes",
+    "technique": "price_sensitivity_elasticity",
+    "confidenceScore": 7,
+    "domain": "philadelphiafed.org",
+    "prompt": "Since last quarter, have your core customers become more or less price sensitive?",
+    "instructions": [],
+    "audience": "Owners, CEOs and other high-level executives of nonmanufacturing firms located in the Third Federal Reserve District (Delaware, southern New Jersey, and eastern and central Pennsylvania) who responded to the Federal Reserve Bank of Philadelphia's May 2026 Nonmanufacturing Business Outlook Survey (the number of responding firms is not published); Special Question 1 of the May 2026 report was asked of all responding firms, with no routing, split sample or subgroup restriction indicated. Respondents belong to the Philadelphia Fed's standing NBOS panel of Third District nonmanufacturing firms, recruited over the study's history through face-to-face meetings, regional chambers of commerce and postal mailings; the publisher states that all nonmanufacturing sectors except natural resources and mining are represented among the respondents, with typically greater representation from the professional and business services, financial activities, and health and education services sectors, and that the panel stays largely the same from month to month while the firms that respond may differ slightly each month because participation is optional. The panel size, response rate and any firm-size eligibility rule are not published. Panel members were emailed the study and their responses were collected electronically between May 11 and May 21, 2026 ('Each month, we email participants and collect their responses electronically', Methodology; the publisher does not state whether the questionnaire is a web form, whether the executive completes it personally, or whether any interviewer is involved; its sample core form is printed in English only and no statement on the languages offered is published); participation is voluntary and no incentive is stated. Reported results for this special question are percentages of responding firms choosing each answer; the publisher prints no seasonal-adjustment note for the special questions. No respondent weighting and no sampling margin of error are published. The study is sponsored and conducted by the Federal Reserve Bank of Philadelphia itself ('we email participants and collect their responses electronically', Methodology; no external fieldwork house is named), which released the results on May 26, 2026.",
+    "source": "https://www.philadelphiafed.org/-/media/FRBP/Assets/Surveys-And-Data/NBOS/2026/nbos0526.pdf?sc_lang=en&hash=603F07C68DADCF741CCFCAC8FB5F3522",
+    "cutoff": "2026-05-10T00:00:00+00:00",
+    "date": "2026-05-21T00:00:00+00:00",
+    "sample": 1441.5,
+    "imputed": true,
+    "caveat": false,
+    "semantics": "categorical_share",
+    "wording": "topline",
+    "observed": 2.700000000000002,
+    "excess": 2.0124587517133157,
+    "tvd": 5.400000000000004,
+    "options": [
+      {
+        "label": "More sensitive",
+        "p": 0.538,
+        "f": 0.5
+      },
+      {
+        "label": "About the same",
+        "p": 0.41,
+        "f": 0.46
+      },
+      {
+        "label": "Less sensitive",
+        "p": 0.026,
+        "f": 0.01
+      },
+      {
+        "label": "Don't know",
+        "p": 0.026,
+        "f": 0.03
+      }
+    ],
+    "family": "9761f0188f7345ea",
+    "question_name": "marginal_001"
+  },
+  {
+    "id": "consumer-reports-american-experiences-survey-aes-toplines--w202603--pet2",
+    "configuration": "consumer-reports-american-experiences-survey-aes-toplines--w202603",
+    "series": "consumer-reports-american-experiences-survey-aes-toplines",
+    "cluster": 11,
+    "industry": "consumer_packaged_goods",
+    "type": "verifiable_facts",
+    "technique": "attitudes_usage",
+    "confidenceScore": 4.5,
+    "domain": "article.images.consumerreports.org",
+    "prompt": "Do any of your pets suffer from allergies?",
+    "instructions": [],
+    "audience": "Adults in the United States who currently have one or more pets (the publisher describes the sample only as representative of the US adult population; it was drawn from NORC's AmeriSpeak Panel, which enrols adults aged 18 and over, and no wave-specific minimum age is published) (n=1,389), asked only of respondents who had said they have one or more dogs, one or more cats, or a pet or pets other than a dog or cat; no split sample. Respondents were members of NORC at the University of Chicago's AmeriSpeak Panel, a probability-based household panel recruited by mail, telephone and in-person follow-up from address-based samples (the NORC National Frame supplemented by the USPS Delivery Sequence File), and were interviewed online (2,084 interviews) or by telephone (128), in English (2,113) or Spanish (99). Fieldwork ran from March 5 to March 16, 2026, with 2,212 completed interviews in total. Data are weighted by age, gender, race/Hispanic ethnicity, housing tenure, telephone status, education, and Census Division to be proportionally representative of the US adult population; the margin of error for the total sample is plus or minus 2.54 percentage points at the 95% confidence level (the wave's response rate, design effect, incentive and the weighting benchmark source are not published). The study is Consumer Reports' March 2026 American Experiences Survey omnibus, sponsored by Consumer Reports (the topline is 'Prepared by CR Survey Research Department') and fielded by NORC; it contained six topic blocks (pet allergies, paying bills, views on consumer protection, food safety, autonomous-vehicle collisions, and made in USA), with the made in USA block always last and the other five in random order, and only total-sample results are published for this wave.",
+    "source": "https://article.images.consumerreports.org/prod/content/dam/surveys/Consumer_Reports_AES_March_2026",
+    "cutoff": "2026-03-04T00:00:00+00:00",
+    "date": "2026-03-16T00:00:00+00:00",
+    "sample": 1389,
+    "imputed": false,
+    "caveat": true,
+    "semantics": "categorical_share",
+    "wording": "topline",
+    "observed": 2.2626000000000013,
+    "excess": 1.3498545852372565,
+    "tvd": 3.393900000000002,
+    "options": [
+      {
+        "label": "Yes",
+        "p": 0.232323,
+        "f": 0.23
+      },
+      {
+        "label": "No",
+        "p": 0.606061,
+        "f": 0.64
+      },
+      {
+        "label": "Unsure",
+        "p": 0.161616,
+        "f": 0.13
+      }
+    ],
+    "family": "073526ee1fc47773",
+    "question_name": "marginal_004"
+  },
+  {
+    "id": "consumer-reports-american-experiences-survey-aes-toplines--w202603-2--sleep6",
+    "configuration": "consumer-reports-american-experiences-survey-aes-toplines--w202603-2",
+    "series": "consumer-reports-american-experiences-survey-aes-toplines",
+    "cluster": 11,
+    "industry": "technology_media_telecom",
+    "type": "reconstructed_behavior",
+    "technique": "attitudes_usage",
+    "confidenceScore": 7,
+    "domain": "article.images.consumerreports.org",
+    "prompt": "You said that you usually use a device before sleep. In general, do you actively use it while you are in bed?",
+    "instructions": [
+      "Please think only about actively using the device. If you use it for less than a minute to set an alarm, or if it is playing music or a meditation track and you are not touching it, please answer \"No.\""
+    ],
+    "audience": "Adults in the United States (the publisher describes the sample only as representative of the US adult population; it was drawn from NORC's AmeriSpeak Panel, which enrols adults aged 18 and over, and no wave-specific minimum age is published), restricted to respondents who use a small-screen device in the hour or two before sleep (n=1,899); the question was shown only to those who answered 'Yes' to an earlier question (SLEEP4, two questions back; a multi-select SLEEP5 intervened) about typically using a smartphone, tablet or other small-screen device in the hour or two before going to sleep. Respondents were members of NORC at the University of Chicago's AmeriSpeak Panel, a probability-based household panel recruited by mail, telephone and in-person follow-up from address-based samples (the NORC National Frame supplemented by the USPS Delivery Sequence File), and were interviewed online (2,172 interviews) or by telephone (100), in English (2,161) or Spanish (111). Fieldwork ran from February 5 to February 16, 2026, with 2,272 completed interviews in total. Data are weighted by age, gender, race/Hispanic ethnicity, housing tenure, telephone status, education, and Census Division to be proportionally representative of the US adult population; the margin of error for the total sample is plus or minus 2.51 percentage points at the 95% confidence level (the wave's response rate, design effect, incentive and the weighting benchmark source are not published). The study is Consumer Reports' February 2026 American Experiences Survey omnibus, sponsored by Consumer Reports (which fields the AES monthly; the topline was prepared by the CR Survey Research Department) and administered by NORC; it contained five topic blocks shown to respondents in random order with the betting-apps block always last, and only total-sample results are published.",
+    "source": "https://article.images.consumerreports.org/prod/content/dam/surveys/Consumer_Reports_AES_February_2026",
+    "cutoff": "2026-02-04T00:00:00+00:00",
+    "date": "2026-02-16T00:00:00+00:00",
+    "sample": 1899,
+    "imputed": false,
+    "caveat": false,
+    "semantics": "categorical_share",
+    "wording": "topline",
+    "observed": 7.999999999999999,
+    "excess": 7.139061854659383,
+    "tvd": 7.999999999999999,
+    "options": [
+      {
+        "label": "Yes",
+        "p": 0.67,
+        "f": 0.75
+      },
+      {
+        "label": "No",
+        "p": 0.33,
+        "f": 0.25
+      }
+    ],
+    "family": "073526ee1fc47773",
+    "question_name": "marginal_005"
+  },
+  {
+    "id": "purdue-university-cme-group-ag-economy-barometer-monthly-report--w202605--iran-corn-breakeven",
+    "configuration": "purdue-university-cme-group-ag-economy-barometer-monthly-report--w202605",
+    "series": "purdue-university-cme-group-ag-economy-barometer-monthly-report",
+    "cluster": 3,
+    "industry": "b2b_professional_services",
+    "type": "speculative_outcomes",
+    "technique": "geopolitical_scenario_analysis",
+    "confidenceScore": 13,
+    "domain": "ag.purdue.edu",
+    "prompt": "What impact do you think the Iran conflict will have on breakeven prices for corn in 2026?",
+    "instructions": [
+      "Answer categories are ranges of the expected percentage increase in corn breakeven prices in 2026, as printed by the publisher: 0 to 3%, 3 to 6%, 6 to 9%, 10% or more."
+    ],
+    "audience": "U.S. agricultural producers (farmers) who operate farm businesses with an annual market value of production of $500,000 or more and who planted corn in 2025, questioned nationwide across the United States as part of a 400-interview producer study; this question was asked only of respondents who planted corn in 2025, and the publisher does not print how many of the 400 respondents were in that group (results are percentages of the corn-planting respondents only, with no further split sample or subgroup indicated). They were interviewed by telephone for the Purdue University-CME Group Ag Economy Barometer producer study from April 13 to 17, 2026 (report published May 5, 2026). The publisher uses phone sampling to fill stratified response targets that correspond with USDA's Census of Agriculture: 49 percent of respondents with a market value of agricultural production of $500,000 to $999,999, 36 percent with $1,000,000 to $2,499,000 and 15 percent with $2,500,000 or more, plus minimum enterprise targets of 53 percent corn/soybeans, 14 percent wheat, 3 percent cotton, 19 percent beef cattle, 5 percent dairy and 6 percent hogs; the publisher states that responses are weighted based upon the USDA Census of Agriculture and that its target of 400 respondents gives a 95 percent confidence interval of plus or minus 5 percent. No age or other respondent-level eligibility criterion beyond the production-value threshold is published, and the calling firm, response rate, languages offered, sampling list and any incentives are not published. The study is sponsored by Purdue University's Center for Commercial Agriculture in partnership with CME Group.",
+    "source": "https://ag.purdue.edu/commercialag/ageconomybarometer/wp-content/uploads/2026/05/April2026_AgEconomyBarometerCharts.pdf",
+    "cutoff": "2026-04-12T00:00:00+00:00",
+    "date": "2026-04-17T00:00:00+00:00",
+    "sample": 400,
+    "imputed": false,
+    "caveat": true,
+    "semantics": "categorical_share",
+    "wording": "report_title",
+    "observed": 6.499999999999998,
+    "excess": 4.819525332623759,
+    "tvd": 12.999999999999996,
+    "options": [
+      {
+        "label": "0 to 3%",
+        "p": 0.293,
+        "f": 0.2
+      },
+      {
+        "label": "3 to 6%",
+        "p": 0.197,
+        "f": 0.25
+      },
+      {
+        "label": "6 to 9%",
+        "p": 0.143,
+        "f": 0.22
+      },
+      {
+        "label": "10% or more",
+        "p": 0.367,
+        "f": 0.33
+      }
+    ],
+    "family": "7bd5ad22beaab712",
+    "question_name": "marginal_006"
+  },
+  {
+    "id": "kff-tracking-poll-on-health-information-and-trust--w202603--q7c",
+    "configuration": "kff-tracking-poll-on-health-information-and-trust--w202603",
+    "series": "kff-tracking-poll-on-health-information-and-trust",
+    "cluster": 45,
+    "industry": "healthcare_life_sciences",
+    "type": "specific_past_events",
+    "technique": "attitudes_usage",
+    "confidenceScore": 4.5,
+    "domain": "files.kff.org",
+    "prompt": "In the past 12 months, have you taken an over-the-counter drug instead of getting a prescription filled because of the cost?",
+    "instructions": [],
+    "audience": "Adults aged 18 and older living in the United States, the full national sample of 1,343 respondents, with this question asked of all respondents (no filter, screen or split-sample note is printed). They were interviewed online or by telephone, in English or Spanish, between February 24 and March 2, 2026, for the KFF Health Tracking Poll/KFF Tracking Poll on Health Information and Trust, a study designed and analyzed by KFF and fielded through the SSRS Opinion Panel and a prepaid cell phone sample supplied by Marketing Systems Group. The sample combines 1,019 members of the SSRS Opinion Panel, a probability-based panel recruited by mailed invitations to an address-based sample and by dual-frame random-digit-dial sampling (995 interviewed online, 24 by phone), with 324 adults reached through a random-digit-dial sample of prepaid cell phone numbers stratified to reach Hispanic and non-Hispanic Black respondents (142 interviewed by phone, 182 invited to the web study by text message); in all, 1,177 interviews were completed online and 166 by telephone, 1,268 in English and 75 in Spanish. Results are weighted to the national U.S. adult population on gender, age, education, race/ethnicity, region, civic engagement, frequency of internet use and political party identification, using the Census Bureau's 2024 Current Population Survey, the September 2023 CPS Volunteering and Civic Life Supplement and the 2025 KFF Benchmarking Survey, with adjustment for the probability of selection by sample type. The margin of sampling error including the design effect is plus or minus 3 percentage points for the full sample of 1,343. The response rate is not published. The topline describes the population only as 'U.S. adults' (PDF p.2); no minimum age or age screen is printed, and 'aged 18 and older' follows the youngest reported age band (18-29, RECAGE2, PDF p.3). No citizenship, voter-registration or employment eligibility requirement is published. No split-ballot, half-sample or form assignment is printed anywhere in the topline (single-form fielding is inferred from that silence); the physical-health and mental-health question blocks were rotated in order across respondents, and the published wording is the web-mode wording. This question was asked of all 1,343 respondents (the topline prints 'n=1,343' on the 3/26 row and no base line); there is no split sample, filter or subgroup restriction, the items within this battery were presented in random order, and the reported figures are weighted percentages of all U.S. adults in the sample.",
+    "source": "https://files.kff.org/attachment/topline-kff-health-tracking-poll-march-2026.pdf",
+    "cutoff": "2026-02-23T00:00:00+00:00",
+    "date": "2026-03-02T00:00:00+00:00",
+    "sample": 1343,
+    "imputed": false,
+    "caveat": false,
+    "semantics": "categorical_share",
+    "wording": "topline",
+    "observed": 6.666666666666669,
+    "excess": 5.995367375851699,
+    "tvd": 10.000000000000004,
+    "options": [
+      {
+        "label": "Yes",
+        "p": 0.31,
+        "f": 0.21
+      },
+      {
+        "label": "No",
+        "p": 0.69,
+        "f": 0.785
+      },
+      {
+        "label": "No answer",
+        "p": 0,
+        "f": 0.005
+      }
+    ],
+    "family": "0e9c9fd4b7fa4456",
+    "question_name": "marginal_008"
+  },
+  {
+    "id": "yougov-ratings-us-brands-2026q2--p46--hubble",
+    "configuration": "yougov-ratings-us-brands-2026q2--p46",
+    "series": "yougov-ratings-us-brands",
+    "cluster": 7,
+    "industry": "healthcare_life_sciences",
+    "type": "general_attitudes",
+    "technique": "brand_health_tracking",
+    "confidenceScore": 11.5,
+    "domain": "api-test.yougov.com",
+    "prompt": "Thinking about the brand Hubble: do you have a positive opinion of it, a neutral opinion, do you dislike it, or have you never heard of it?",
+    "instructions": [],
+    "audience": "Adults in the United States interviewed online in YouGov's US panel for YouGov Ratings, which measures the fame and popularity of brands from responses collected every day and published once a quarter as the average over the collection period (Second quarter of 2026, 2026-04-01 to 2026-06-30); results are nationally representative of the US adult population, with between roughly 1,000 and 1,300 interviews per brand (the per-brand count is stated with each item). Weighting details, response rates and the fielded questionnaire are not published by YouGov for this product. All US adults in the YouGov Ratings sample for this brand (Second quarter of 2026; 1,151 nationally representative interviews); no screen or filter. Shares are of all adults: those who have not heard of the brand are counted in the 'Never heard of' category.",
+    "source": "https://api-test.yougov.com/public-data/v5/us/search/entity/Hubble/rating_data/scores/",
+    "cutoff": "2026-03-31T00:00:00+00:00",
+    "date": "2026-06-30T00:00:00+00:00",
+    "sample": 1300,
+    "imputed": false,
+    "caveat": false,
+    "semantics": "categorical_share",
+    "wording": "report_title",
+    "observed": 7.1732499999999995,
+    "excess": 6.413178020302771,
+    "tvd": 14.346499999999999,
+    "options": [
+      {
+        "label": "Positive opinion",
+        "p": 0.178218,
+        "f": 0.22
+      },
+      {
+        "label": "Neutral",
+        "p": 0.138614,
+        "f": 0.21
+      },
+      {
+        "label": "Dislike",
+        "p": 0.029703,
+        "f": 0.06
+      },
+      {
+        "label": "Never heard of",
+        "p": 0.653465,
+        "f": 0.51
+      }
+    ],
+    "family": "882c4b2c96513f68",
+    "question_name": "marginal_009"
+  }
+]

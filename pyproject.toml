@@ -1,0 +1,25 @@
+[project]
+name = "aaru-edsl-benchmark"
+version = "0.1.0"
+description = "Seeded 100-question comparison of Aaru and EDSL marginal forecasts"
+requires-python = ">=3.11,<3.13"
+dependencies = ["numpy==1.26.4", "matplotlib==3.8.4", "python-dotenv==1.2.2", "edsl[inference] @ git+https://github.com/expectedparrot/edsl.git@cfef949e4ea87ab0bf6e998ab64b54a1bfcec6e4"]
+
+[dependency-groups]
+dev = ["pytest==8.4.2"]
+
+[project.scripts]
+aaru-edsl = "aaru_edsl.cli:main"
+
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aaru_edsl"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

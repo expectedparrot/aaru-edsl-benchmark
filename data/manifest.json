@@ -1,0 +1,19 @@
+{
+  "files": {
+    "aaru_questions.json.gz": "043b552342f5cf032fcbdf948545dd08e90e485efd5e2cf88bd64684aaffc358",
+    "adapter_diagnostic.json": "60d130b878bfd6de2f9104ac53c79c8c4375b30b1ffb3bc082b05903a5bd0efe",
+    "astra_jobs.json": "bcdce00ebf9bc693fda514ca91ad1636c66b8004756741bffb222e58025e7fb3",
+    "astra_prompts.json": "a72595f45d390b22f7067c50bdc8d69fc0ad63452485c618102950fdcfee5915",
+    "catalog.json": "ceb00c7f4c30708dd39a4b7e91e21d7d2f4c1899d4d6ed09c820ef6ae91320fd",
+    "cost_audit.json": "24d5b6a2066e5321c1601e74220078ab0365aeff240e2081f414ad6431395820",
+    "fable_jobs.json": "45e11c5c4e882bc840c15f26b9281a9f38eb9f108d60e9a4440765ac96bc94cd",
+    "fable_prompts.json": "3ef1b37fe89f0cb11edd241f71c231c8711c25ade5f933bb9ab2e3023b28daa7",
+    "failures.json": "f1bdf740201190eda8df08710a15d321853542a96662b7349f91dd5b4aef777a",
+    "forecasts.json": "8eb67f0328cd456d959a46d1d7da5264e4a123eef0755963b7476e44d51ba8e8",
+    "gemini_jobs.json": "c4ca50d7554d0411842dafe5f402cd81f53da90fad3575faa32b890957c48750",
+    "gemini_prompts.json": "877defa5a30eaf912ae09302db22bc9f9072b755384ef46caef485692a9875a9",
+    "protocol.json": "958c36da73982fc10498ac5cb8c843cc6032edfde3ed134ff6b338426ad2127c",
+    "provenance.json": "fdefa7584c4bd94fd14db59c7dd77bba39aa58072b11eda0bf368f8cbe2d4cfa",
+    "sample.json": "f70537f1c58603dc4c4f98d6c0064c5e85a9ac122ef81facf8c0ef01f064a870"
+  }
+}

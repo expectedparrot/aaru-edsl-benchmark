@@ -1,0 +1,77 @@
+{
+  "questions": 100,
+  "families": 40,
+  "seed": 20260927,
+  "bootstrap_repetitions": 20000,
+  "models": {
+    "aaru": {
+      "label": "Aaru",
+      "mean_tvd": 7.5034725,
+      "median_tvd": 5.999999999999998,
+      "mean_difference_from_aaru": 0.0,
+      "paired_family_bootstrap_95ci": [
+        0.0,
+        0.0
+      ],
+      "wins_against_aaru": 0,
+      "ties_against_aaru": 100
+    },
+    "astra": {
+      "label": "GPT-6 Astra",
+      "mean_tvd": 9.053689559,
+      "median_tvd": 7.0,
+      "mean_difference_from_aaru": 1.5502170590000006,
+      "paired_family_bootstrap_95ci": [
+        0.5553620779430971,
+        2.621740607722787
+      ],
+      "wins_against_aaru": 34,
+      "ties_against_aaru": 8
+    },
+    "fable": {
+      "label": "Fable 5.1",
+      "mean_tvd": 10.3297465,
+      "median_tvd": 8.618675,
+      "mean_difference_from_aaru": 2.8262740000000006,
+      "paired_family_bootstrap_95ci": [
+        1.6922775118710855,
+        4.03697431955211
+      ],
+      "wins_against_aaru": 25,
+      "ties_against_aaru": 5
+    },
+    "gemini": {
+      "label": "Gemini 3.8 Flash",
+      "mean_tvd": 11.044847500000001,
+      "median_tvd": 9.642425000000001,
+      "mean_difference_from_aaru": 3.5413749999999995,
+      "paired_family_bootstrap_95ci": [
+        2.090530770730543,
+        5.066711415149167
+      ],
+      "wins_against_aaru": 34,
+      "ties_against_aaru": 4
+    }
+  },
+  "validity": {
+    "astra": {
+      "first_submission_valid": 100,
+      "final_valid": 100
+    },
+    "fable": {
+      "first_submission_valid": 100,
+      "final_valid": 100
+    },
+    "gemini": {
+      "first_submission_valid": 97,
+      "final_valid": 100
+    }
+  },
+  "first_submission_common_questions": 97,
+  "first_submission_common_mean_tvd": {
+    "aaru": 7.647674742268041,
+    "astra": 9.212928411340206,
+    "fable": 10.53573969072165,
+    "gemini": 11.186359278350515
+  }
+}

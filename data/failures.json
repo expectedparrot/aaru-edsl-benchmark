@@ -1,0 +1,20 @@
+[
+  {
+    "question_name": "marginal_021",
+    "model_key": "gemini",
+    "reason": "Missing native validated distribution",
+    "job_uuid": "7171e530-5d23-4b6f-9f86-41072adf7456"
+  },
+  {
+    "question_name": "marginal_023",
+    "model_key": "gemini",
+    "reason": "Missing native validated distribution",
+    "job_uuid": "7171e530-5d23-4b6f-9f86-41072adf7456"
+  },
+  {
+    "question_name": "marginal_053",
+    "model_key": "gemini",
+    "reason": "Missing native validated distribution",
+    "job_uuid": "7171e530-5d23-4b6f-9f86-41072adf7456"
+  }
+]

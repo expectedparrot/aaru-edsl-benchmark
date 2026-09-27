@@ -1,0 +1,14 @@
+{
+  "state": "discrepancy",
+  "results_cost_usd": 0.04981,
+  "reported_job_cost_usd": 0.6199,
+  "difference_usd": 0.57009,
+  "absolute_tolerance_usd": 0.0002,
+  "ratio": 12.44529211001807,
+  "actual_debit_verified": false,
+  "job_uuid": "a5c02036-c179-4f7f-9c1f-a1fe49e72812",
+  "requested_model": "gpt-6-astra",
+  "service": "openai_v2",
+  "included_in_accuracy_comparison": false,
+  "reason": "Compatibility/pricing diagnostic; catalog-listed openai route chosen before full inference, not based on forecast accuracy."
+}

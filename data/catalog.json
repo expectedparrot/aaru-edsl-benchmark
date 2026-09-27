@@ -1,0 +1,1796 @@
+{
+  "working-models": [
+    {
+      "service": "anthropic",
+      "model": "claude-fable-5",
+      "works_with_text": true,
+      "works_with_images": true,
+      "input_price_per_1M_tokens": 10.0,
+      "output_price_per_1M_tokens": 50.0,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "anthropic",
+      "model": "claude-fable-5-1",
+      "works_with_text": true,
+      "works_with_images": true,
+      "input_price_per_1M_tokens": 10.0,
+      "output_price_per_1M_tokens": 50.0,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "deep_infra",
+      "model": "anthropic/claude-fable-5",
+      "works_with_text": true,
+      "works_with_images": true,
+      "input_price_per_1M_tokens": 10.0,
+      "output_price_per_1M_tokens": 50.0,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "deep_infra",
+      "model": "google/gemini-2.5-flash",
+      "works_with_text": true,
+      "works_with_images": true,
+      "input_price_per_1M_tokens": 0.3,
+      "output_price_per_1M_tokens": 2.5,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "deep_infra",
+      "model": "google/gemini-2.5-pro",
+      "works_with_text": false,
+      "works_with_images": true,
+      "input_price_per_1M_tokens": 1.25,
+      "output_price_per_1M_tokens": 10.0,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "deep_infra",
+      "model": "google/gemini-3.1-flash-lite",
+      "works_with_text": true,
+      "works_with_images": true,
+      "input_price_per_1M_tokens": 0.25,
+      "output_price_per_1M_tokens": 1.5,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "deep_infra",
+      "model": "google/gemini-3.1-pro",
+      "works_with_text": true,
+      "works_with_images": true,
+      "input_price_per_1M_tokens": 2.0,
+      "output_price_per_1M_tokens": 12.0,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "deep_infra",
+      "model": "google/gemini-3.5-flash",
+      "works_with_text": true,
+      "works_with_images": true,
+      "input_price_per_1M_tokens": 1.5,
+      "output_price_per_1M_tokens": 9.0,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "deep_infra",
+      "model": "google/gemini-3.7-flash",
+      "works_with_text": true,
+      "works_with_images": true,
+      "input_price_per_1M_tokens": 16.5,
+      "output_price_per_1M_tokens": 82.5,
+      "using_fallback_input_price": true,
+      "using_fallback_output_price": true
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-flash",
+      "works_with_text": true,
+      "works_with_images": false,
+      "input_price_per_1M_tokens": 0.3,
+      "output_price_per_1M_tokens": 2.5,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-flash-image",
+      "works_with_text": true,
+      "works_with_images": true,
+      "input_price_per_1M_tokens": 0.3,
+      "output_price_per_1M_tokens": 30.0,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-flash-lite",
+      "works_with_text": true,
+      "works_with_images": true,
+      "input_price_per_1M_tokens": 0.1,
+      "output_price_per_1M_tokens": 0.4,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-pro",
+      "works_with_text": true,
+      "works_with_images": false,
+      "input_price_per_1M_tokens": 1.25,
+      "output_price_per_1M_tokens": 10.0,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-3-flash-preview",
+      "works_with_text": true,
+      "works_with_images": false,
+      "input_price_per_1M_tokens": 0.5,
+      "output_price_per_1M_tokens": 3.0,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-3-pro-image",
+      "works_with_text": true,
+      "works_with_images": false,
+      "input_price_per_1M_tokens": 2.0,
+      "output_price_per_1M_tokens": 12.0,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-3-pro-image-preview",
+      "works_with_text": true,
+      "works_with_images": true,
+      "input_price_per_1M_tokens": 2.0,
+      "output_price_per_1M_tokens": 120.0,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-flash-image",
+      "works_with_text": true,
+      "works_with_images": false,
+      "input_price_per_1M_tokens": 0.5,
+      "output_price_per_1M_tokens": 3.0,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-flash-image-preview",
+      "works_with_text": true,
+      "works_with_images": false,
+      "input_price_per_1M_tokens": 0.5,
+      "output_price_per_1M_tokens": 3.0,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-flash-lite",
+      "works_with_text": true,
+      "works_with_images": false,
+      "input_price_per_1M_tokens": 0.25,
+      "output_price_per_1M_tokens": 1.5,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-flash-lite-image",
+      "works_with_text": true,
+      "works_with_images": true,
+      "input_price_per_1M_tokens": 0.25,
+      "output_price_per_1M_tokens": 1.5,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-flash-lite-preview",
+      "works_with_text": true,
+      "works_with_images": false,
+      "input_price_per_1M_tokens": 0.25,
+      "output_price_per_1M_tokens": 1.5,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-pro-preview",
+      "works_with_text": true,
+      "works_with_images": false,
+      "input_price_per_1M_tokens": 2.0,
+      "output_price_per_1M_tokens": 12.0,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-pro-preview-customtools",
+      "works_with_text": true,
+      "works_with_images": false,
+      "input_price_per_1M_tokens": 2.0,
+      "output_price_per_1M_tokens": 12.0,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.5-flash",
+      "works_with_text": true,
+      "works_with_images": true,
+      "input_price_per_1M_tokens": 1.5,
+      "output_price_per_1M_tokens": 9.0,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.5-flash-lite",
+      "works_with_text": true,
+      "works_with_images": false,
+      "input_price_per_1M_tokens": 0.3,
+      "output_price_per_1M_tokens": 2.5,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.6-flash",
+      "works_with_text": true,
+      "works_with_images": false,
+      "input_price_per_1M_tokens": 0.75,
+      "output_price_per_1M_tokens": 3.75,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.7-flash",
+      "works_with_text": true,
+      "works_with_images": false,
+      "input_price_per_1M_tokens": 0.75,
+      "output_price_per_1M_tokens": 3.75,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.8-flash",
+      "works_with_text": true,
+      "works_with_images": true,
+      "input_price_per_1M_tokens": 0.75,
+      "output_price_per_1M_tokens": 3.75,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-flash-latest",
+      "works_with_text": true,
+      "works_with_images": false,
+      "input_price_per_1M_tokens": 1.5,
+      "output_price_per_1M_tokens": 9.0,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-flash-lite-latest",
+      "works_with_text": true,
+      "works_with_images": true,
+      "input_price_per_1M_tokens": 0.25,
+      "output_price_per_1M_tokens": 1.5,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-pro-latest",
+      "works_with_text": true,
+      "works_with_images": true,
+      "input_price_per_1M_tokens": 2.0,
+      "output_price_per_1M_tokens": 12.0,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    },
+    {
+      "service": "google",
+      "model": "gemini-robotics-er-2-preview",
+      "works_with_text": true,
+      "works_with_images": false,
+      "input_price_per_1M_tokens": 10.0,
+      "output_price_per_1M_tokens": 120.0,
+      "using_fallback_input_price": true,
+      "using_fallback_output_price": true
+    },
+    {
+      "service": "openai",
+      "model": "gpt-6-astra",
+      "works_with_text": true,
+      "works_with_images": true,
+      "input_price_per_1M_tokens": 10.0,
+      "output_price_per_1M_tokens": 50.0,
+      "using_fallback_input_price": false,
+      "using_fallback_output_price": false
+    }
+  ],
+  "prices": [
+    {
+      "service": "google",
+      "model": "gemini-3.1-flash-lite-image",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.25,
+      "one_usd_buys": 4000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-flash-lite-image",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.5,
+      "one_usd_buys": 666666.6666666666
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-pro-001",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 5.0,
+      "one_usd_buys": 200000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.5-flash-lite",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.3,
+      "one_usd_buys": 3333333.3333333335
+    },
+    {
+      "service": "deep_infra",
+      "model": "google/gemini-2.5-flash",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.3,
+      "one_usd_buys": 3333334.0
+    },
+    {
+      "service": "deep_infra",
+      "model": "google/gemini-2.5-flash",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 2.5,
+      "one_usd_buys": 400000.0
+    },
+    {
+      "service": "deep_infra",
+      "model": "google/gemini-2.5-pro",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.25,
+      "one_usd_buys": 800000.0
+    },
+    {
+      "service": "deep_infra",
+      "model": "google/gemini-2.5-pro",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 10.0,
+      "one_usd_buys": 100000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.5-flash-lite",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 2.5,
+      "one_usd_buys": 400000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.8-flash",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.75,
+      "one_usd_buys": 1333333.3333333333
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.8-flash",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 3.75,
+      "one_usd_buys": 266666.6666666667
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-flash-image",
+      "mode": "regular",
+      "token_type": "image_output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 30.0,
+      "one_usd_buys": 33333.333333333336
+    },
+    {
+      "service": "google",
+      "model": "gemini-3-pro-image",
+      "mode": "regular",
+      "token_type": "image_output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 120.0,
+      "one_usd_buys": 8333.333333333334
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-flash-image",
+      "mode": "regular",
+      "token_type": "image_output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 60.0,
+      "one_usd_buys": 16666.666666666668
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-flash-lite-image",
+      "mode": "regular",
+      "token_type": "image_output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 30.0,
+      "one_usd_buys": 33333.333333333336
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.0-pro",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.5,
+      "one_usd_buys": 2000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.0-pro",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.5,
+      "one_usd_buys": 666667.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-flash",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.075,
+      "one_usd_buys": 13333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-flash",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.3,
+      "one_usd_buys": 3333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-flash-001",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.075,
+      "one_usd_buys": 13333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-flash-001",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.3,
+      "one_usd_buys": 3333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-flash-001-tuning",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.075,
+      "one_usd_buys": 13333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-flash-001-tuning",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.3,
+      "one_usd_buys": 3333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-flash-002",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.075,
+      "one_usd_buys": 13333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-flash-002",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.3,
+      "one_usd_buys": 3333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-flash-8b",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.0375,
+      "one_usd_buys": 26666667.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-flash-8b",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.15,
+      "one_usd_buys": 6666667.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-flash-8b-001",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.0375,
+      "one_usd_buys": 26666667.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-flash-8b-001",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.15,
+      "one_usd_buys": 6666667.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-flash-8b-exp-0827",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.0375,
+      "one_usd_buys": 26666667.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-flash-8b-exp-0827",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.15,
+      "one_usd_buys": 6666667.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-flash-8b-exp-0924",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.0375,
+      "one_usd_buys": 26666667.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-flash-8b-exp-0924",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.15,
+      "one_usd_buys": 6666667.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-flash-8b-latest",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.0375,
+      "one_usd_buys": 26666667.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-flash-8b-latest",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.15,
+      "one_usd_buys": 6666667.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-flash-latest",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.075,
+      "one_usd_buys": 13333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-flash-latest",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.3,
+      "one_usd_buys": 3333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-pro",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.25,
+      "one_usd_buys": 800000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-pro",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 5.0,
+      "one_usd_buys": 200000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-pro-001",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.25,
+      "one_usd_buys": 800000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-pro-002",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.25,
+      "one_usd_buys": 800000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-pro-002",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 5.0,
+      "one_usd_buys": 200000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-pro-latest",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.25,
+      "one_usd_buys": 800000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-1.5-pro-latest",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 5.0,
+      "one_usd_buys": 200000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.1,
+      "one_usd_buys": 10000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.4,
+      "one_usd_buys": 2500000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash-001",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.1,
+      "one_usd_buys": 10000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash-001",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.4,
+      "one_usd_buys": 2500000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash-exp",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.1,
+      "one_usd_buys": 10000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash-exp",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.4,
+      "one_usd_buys": 2500000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash-exp-image-generation",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.1,
+      "one_usd_buys": 10000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash-exp-image-generation",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.4,
+      "one_usd_buys": 2500000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash-lite",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.075,
+      "one_usd_buys": 13333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash-lite",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.3,
+      "one_usd_buys": 3333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash-lite-001",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.075,
+      "one_usd_buys": 13333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash-lite-001",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.3,
+      "one_usd_buys": 3333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash-lite-preview",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.075,
+      "one_usd_buys": 13333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash-lite-preview",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.3,
+      "one_usd_buys": 3333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash-lite-preview-02-05",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.075,
+      "one_usd_buys": 13333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash-lite-preview-02-05",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.3,
+      "one_usd_buys": 3333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash-thinking-exp",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.1,
+      "one_usd_buys": 10000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash-thinking-exp",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.4,
+      "one_usd_buys": 2500000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash-thinking-exp-01-21",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.1,
+      "one_usd_buys": 10000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash-thinking-exp-01-21",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.4,
+      "one_usd_buys": 2500000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash-thinking-exp-1219",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.1,
+      "one_usd_buys": 10000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-flash-thinking-exp-1219",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.4,
+      "one_usd_buys": 2500000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-pro-exp",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.1,
+      "one_usd_buys": 10000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-pro-exp",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.4,
+      "one_usd_buys": 2500000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-pro-exp-02-05",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.1,
+      "one_usd_buys": 10000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-pro-exp-02-05",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.4,
+      "one_usd_buys": 2500000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-pro-exp-03-25",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.1,
+      "one_usd_buys": 10000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.0-pro-exp-03-25",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.4,
+      "one_usd_buys": 2500000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-flash",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.3,
+      "one_usd_buys": 3333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-flash",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 2.5,
+      "one_usd_buys": 400000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-flash-image",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.3,
+      "one_usd_buys": 3333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-flash-image",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 30.0,
+      "one_usd_buys": 33334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-flash-lite",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.1,
+      "one_usd_buys": 10000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-flash-lite",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.4,
+      "one_usd_buys": 2500000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-flash-lite-preview-06-17",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.1,
+      "one_usd_buys": 10000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-flash-lite-preview-06-17",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.4,
+      "one_usd_buys": 2500000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-flash-preview-05-20",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.5,
+      "one_usd_buys": 2000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-flash-preview-05-20",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 10.0,
+      "one_usd_buys": 100000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-pro",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.25,
+      "one_usd_buys": 800000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-pro",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 10.0,
+      "one_usd_buys": 100000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-pro-exp-03-25",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.25,
+      "one_usd_buys": 800000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-pro-exp-03-25",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 10.0,
+      "one_usd_buys": 100000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-pro-preview",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.25,
+      "one_usd_buys": 800000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-pro-preview",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 10.0,
+      "one_usd_buys": 100000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-pro-preview-03-25",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.25,
+      "one_usd_buys": 800000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-pro-preview-03-25",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 10.0,
+      "one_usd_buys": 100000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-pro-preview-05-06",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.25,
+      "one_usd_buys": 800000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-pro-preview-05-06",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 10.0,
+      "one_usd_buys": 100000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-pro-preview-06-05",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 10.0,
+      "one_usd_buys": 100000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-2.5-pro-preview-06-05",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 20.0,
+      "one_usd_buys": 50000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3-flash-preview",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.5,
+      "one_usd_buys": 2000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3-flash-preview",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 3.0,
+      "one_usd_buys": 333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3-pro-image-preview",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 120.0,
+      "one_usd_buys": 8333.333333333334
+    },
+    {
+      "service": "google",
+      "model": "gemini-3-pro-image-preview",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 2.0,
+      "one_usd_buys": 500000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3-pro-preview",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 2.0,
+      "one_usd_buys": 500000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3-pro-preview",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 12.0,
+      "one_usd_buys": 83334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-flash-image-preview",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.5,
+      "one_usd_buys": 2000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-flash-image-preview",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 3.0,
+      "one_usd_buys": 333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-flash-lite",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.25,
+      "one_usd_buys": 4000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-flash-lite",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.5,
+      "one_usd_buys": 666667.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-flash-lite-preview",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.25,
+      "one_usd_buys": 4000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-flash-lite-preview",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.5,
+      "one_usd_buys": 666667.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-pro-preview",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 2.0,
+      "one_usd_buys": 500000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-pro-preview",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 12.0,
+      "one_usd_buys": 83334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-pro-preview-customtools",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 2.0,
+      "one_usd_buys": 500000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-pro-preview-customtools",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 12.0,
+      "one_usd_buys": 83334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.5-flash",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.5,
+      "one_usd_buys": 666667.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.5-flash",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 9.0,
+      "one_usd_buys": 111112.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-flash-latest",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.5,
+      "one_usd_buys": 666667.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-flash-latest",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 9.0,
+      "one_usd_buys": 111112.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-flash-lite-latest",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.25,
+      "one_usd_buys": 4000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-flash-lite-latest",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.5,
+      "one_usd_buys": 666667.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-pro",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.5,
+      "one_usd_buys": 2000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-pro",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.5,
+      "one_usd_buys": 666667.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-pro-latest",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 2.0,
+      "one_usd_buys": 500000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-pro-latest",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 12.0,
+      "one_usd_buys": 83334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-robotics-er-1.5-preview",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.3,
+      "one_usd_buys": 3333334.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-robotics-er-1.5-preview",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 2.5,
+      "one_usd_buys": 400000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-robotics-er-1.6-preview",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.0,
+      "one_usd_buys": 1000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-robotics-er-1.6-preview",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 5.0,
+      "one_usd_buys": 200000.0
+    },
+    {
+      "service": "anthropic",
+      "model": "claude-fable-5-1",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 10.0,
+      "one_usd_buys": 100000.0
+    },
+    {
+      "service": "anthropic",
+      "model": "claude-fable-5-1",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 50.0,
+      "one_usd_buys": 20000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.6-flash",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.75,
+      "one_usd_buys": 1333333.3333333333
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.6-flash",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 3.75,
+      "one_usd_buys": 266666.6666666667
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.7-flash",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.75,
+      "one_usd_buys": 1333333.3333333333
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.7-flash",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 3.75,
+      "one_usd_buys": 266666.6666666667
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-flash-image",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 3.0,
+      "one_usd_buys": 333333.3333333333
+    },
+    {
+      "service": "bedrock",
+      "model": "anthropic.claude-fable-5.1",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 10.0,
+      "one_usd_buys": 100000.0
+    },
+    {
+      "service": "bedrock",
+      "model": "anthropic.claude-fable-5.1",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 50.0,
+      "one_usd_buys": 20000.0
+    },
+    {
+      "service": "anthropic",
+      "model": "claude-fable-5",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 10.0,
+      "one_usd_buys": 100000.0
+    },
+    {
+      "service": "bedrock",
+      "model": "global.anthropic.claude-fable-5.1",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 10.0,
+      "one_usd_buys": 100000.0
+    },
+    {
+      "service": "bedrock",
+      "model": "global.anthropic.claude-fable-5.1",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 50.0,
+      "one_usd_buys": 20000.0
+    },
+    {
+      "service": "bedrock",
+      "model": "us.anthropic.claude-fable-5.1",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 10.0,
+      "one_usd_buys": 100000.0
+    },
+    {
+      "service": "bedrock",
+      "model": "us.anthropic.claude-fable-5.1",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 50.0,
+      "one_usd_buys": 20000.0
+    },
+    {
+      "service": "deep_infra",
+      "model": "google/gemini-3.1-flash-lite",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.25,
+      "one_usd_buys": 4000000.0
+    },
+    {
+      "service": "deep_infra",
+      "model": "google/gemini-3.1-flash-lite",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.5,
+      "one_usd_buys": 666666.6666666666
+    },
+    {
+      "service": "deep_infra",
+      "model": "google/gemini-3.1-pro",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 2.0,
+      "one_usd_buys": 500000.0
+    },
+    {
+      "service": "deep_infra",
+      "model": "google/gemini-3.1-pro",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 12.0,
+      "one_usd_buys": 83333.33333333333
+    },
+    {
+      "service": "deep_infra",
+      "model": "google/gemini-3.5-flash",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 1.5,
+      "one_usd_buys": 666666.6666666666
+    },
+    {
+      "service": "deep_infra",
+      "model": "google/gemini-3.5-flash",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 9.0,
+      "one_usd_buys": 111111.11111111111
+    },
+    {
+      "service": "google",
+      "model": "gemini-3-pro-image",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 2.0,
+      "one_usd_buys": 500000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3.1-flash-image",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 0.5,
+      "one_usd_buys": 2000000.0
+    },
+    {
+      "service": "google",
+      "model": "gemini-3-pro-image",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 12.0,
+      "one_usd_buys": 83333.33333333333
+    },
+    {
+      "service": "deep_infra",
+      "model": "anthropic/claude-fable-5.1",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 10.0,
+      "one_usd_buys": 100000.0
+    },
+    {
+      "service": "deep_infra",
+      "model": "anthropic/claude-fable-5.1",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 50.0,
+      "one_usd_buys": 20000.0
+    },
+    {
+      "service": "openai",
+      "model": "gpt-6-astra",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 10.0,
+      "one_usd_buys": 100000.0
+    },
+    {
+      "service": "openai",
+      "model": "gpt-6-astra",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 50.0,
+      "one_usd_buys": 20000.0
+    },
+    {
+      "service": "bedrock",
+      "model": "anthropic.claude-fable-5",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 10.0,
+      "one_usd_buys": 100000.0
+    },
+    {
+      "service": "bedrock",
+      "model": "anthropic.claude-fable-5",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 50.0,
+      "one_usd_buys": 20000.0
+    },
+    {
+      "service": "bedrock",
+      "model": "global.anthropic.claude-fable-5",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 10.0,
+      "one_usd_buys": 100000.0
+    },
+    {
+      "service": "bedrock",
+      "model": "global.anthropic.claude-fable-5",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 50.0,
+      "one_usd_buys": 20000.0
+    },
+    {
+      "service": "anthropic",
+      "model": "claude-fable-5",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 50.0,
+      "one_usd_buys": 20000.0
+    },
+    {
+      "service": "bedrock",
+      "model": "us.anthropic.claude-fable-5",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 10.0,
+      "one_usd_buys": 100000.0
+    },
+    {
+      "service": "bedrock",
+      "model": "us.anthropic.claude-fable-5",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 50.0,
+      "one_usd_buys": 20000.0
+    },
+    {
+      "service": "deep_infra",
+      "model": "anthropic/claude-fable-5",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 10.0,
+      "one_usd_buys": 100000.0
+    },
+    {
+      "service": "deep_infra",
+      "model": "anthropic/claude-fable-5",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 50.0,
+      "one_usd_buys": 20000.0
+    },
+    {
+      "service": "openai_v2",
+      "model": "gpt-6-astra",
+      "mode": "regular",
+      "token_type": "input",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 10.0,
+      "one_usd_buys": 100000.0
+    },
+    {
+      "service": "openai_v2",
+      "model": "gpt-6-astra",
+      "mode": "regular",
+      "token_type": "output",
+      "service_stated_token_qty": 1000000.0,
+      "service_stated_token_price": 50.0,
+      "one_usd_buys": 20000.0
+    }
+  ],
+  "retrieved_date": "2026-09-27",
+  "api_url": "https://api.expectedparrot.com"
+}

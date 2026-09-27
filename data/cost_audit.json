@@ -1,0 +1,84 @@
+[
+  {
+    "model_key": "astra",
+    "stage": "smoke",
+    "state": "matched",
+    "results_cost_usd": 0.058410000000000004,
+    "reported_job_cost_usd": 0.0583,
+    "difference_usd": -0.00011000000000000593,
+    "absolute_tolerance_usd": 0.0002,
+    "ratio": 0.9981167608286251,
+    "actual_debit_verified": false,
+    "job_uuid": "e99919a1-9d98-4839-b760-d0e392c0ae65"
+  },
+  {
+    "model_key": "astra",
+    "stage": "full",
+    "state": "matched",
+    "results_cost_usd": 3.228400000000001,
+    "reported_job_cost_usd": 3.2283999999999997,
+    "difference_usd": -1.3322676295501878e-15,
+    "absolute_tolerance_usd": 0.0002,
+    "ratio": 0.9999999999999996,
+    "actual_debit_verified": false,
+    "job_uuid": "f93ca85f-288a-438a-9047-1488febf30da"
+  },
+  {
+    "model_key": "fable",
+    "stage": "smoke",
+    "state": "matched",
+    "results_cost_usd": 0.026870000000000005,
+    "reported_job_cost_usd": 0.026699999999999998,
+    "difference_usd": -0.00017000000000000695,
+    "absolute_tolerance_usd": 0.0002,
+    "ratio": 0.9936732415333083,
+    "actual_debit_verified": false,
+    "job_uuid": "060f9bc6-6160-4f4c-9c2e-bbfbf78cd95d"
+  },
+  {
+    "model_key": "fable",
+    "stage": "full",
+    "state": "matched",
+    "results_cost_usd": 2.881100000000001,
+    "reported_job_cost_usd": 2.8810000000000002,
+    "difference_usd": -0.00010000000000065512,
+    "absolute_tolerance_usd": 0.0002,
+    "ratio": 0.999965291034674,
+    "actual_debit_verified": false,
+    "job_uuid": "c1f2a425-f015-4571-aa54-eed847ba87c6"
+  },
+  {
+    "model_key": "gemini",
+    "stage": "smoke",
+    "state": "matched",
+    "results_cost_usd": 0.030689249999999998,
+    "reported_job_cost_usd": 0.030600000000000002,
+    "difference_usd": -8.924999999999558e-05,
+    "absolute_tolerance_usd": 0.0002,
+    "ratio": 0.9970918155380143,
+    "actual_debit_verified": false,
+    "job_uuid": "e69f38de-66a4-4876-a53f-0470aa52e8e4"
+  },
+  {
+    "model_key": "gemini",
+    "stage": "full",
+    "state": "unresolved",
+    "results_cost_usd": 3.2494342500000015,
+    "reported_job_cost_usd": 3.2493,
+    "job_uuid": "7171e530-5d23-4b6f-9f86-41072adf7456",
+    "failed_questions": 3
+  },
+  {
+    "model_key": "gemini",
+    "stage": "retry",
+    "state": "matched",
+    "results_cost_usd": 0.17650575,
+    "reported_job_cost_usd": 0.1764,
+    "difference_usd": -0.0001057499999999878,
+    "absolute_tolerance_usd": 0.0002,
+    "ratio": 0.9994008693767767,
+    "actual_debit_verified": false,
+    "job_uuid": "d89ff9e9-becd-4410-911b-3c37ce4960bc",
+    "failed_questions": 0
+  }
+]
