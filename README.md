@@ -1,19 +1,33 @@
 # One-shot survey forecasts with EDSL and Expected Parrot
 
-**A fixed sample of 100 Aaru benchmark questions, answered by GPT-6 Astra, Fable 5.1, and Gemini 3.8 Flash through EDSL / Expected Parrot.** Each model predicts the whole answer distribution in one response. Aaru’s published predictions are scored on the same questions. Invalid-format responses may receive one explicitly requested retry, as documented below.
+**A fixed sample of 100 Aaru benchmark questions, answered by GPT-6 Astra at medium and high reasoning effort, Fable 5.1, and Gemini 3.8 Flash through EDSL / Expected Parrot.** Each configuration predicts the whole answer distribution in one response. Aaru’s published predictions are scored on the same questions. Invalid-format responses may receive one explicitly requested retry, as documented below.
 
 | Method | Mean TVD ↓ | Difference from Aaru | 95% paired family-bootstrap interval |
 |---|---:|---:|---|
 | Aaru | 7.50 | +0.00 | — |
-| GPT-6 Astra | 9.05 | +1.55 | [+0.56, +2.62] |
+| GPT-6 Astra (high) | 9.05 | +1.55 | [+0.56, +2.62] |
+| GPT-6 Astra (medium) | 8.85 | +1.35 | [+0.25, +2.57] |
 | Fable 5.1 | 10.33 | +2.83 | [+1.69, +4.04] |
 | Gemini 3.8 Flash | 11.04 | +3.54 | [+2.09, +5.07] |
 
-GPT-6 Astra has the lowest mean error among the three one-shot models in this sample. Its mean TVD is 9.05, versus 7.50 for Aaru. This is a descriptive ranking from the retained valid responses, not evidence of a stable ordering across repeated runs.
+GPT-6 Astra (medium) has the lowest mean error among the four one-shot configurations in this sample. Its mean TVD is 8.85, versus 7.50 for Aaru. This is a descriptive ranking from the retained valid responses, not evidence of a stable ordering across repeated runs.
+
+## GPT-6: medium versus high
+
+High minus medium mean TVD is **+0.20 points** (95% paired family-bootstrap interval **[-0.30, +0.64]**). Negative favors high. High has lower error on **37/100** questions, medium on **43/100**, with **20** ties.
+
+The interval includes zero: this sample does not establish a reliable accuracy advantage for either effort level.
+
+Both configurations use exactly the same 100 questions, rendered prompts, EP service (`openai`), and 8,192-token output cap. The only configured difference is `reasoning_effort`. Medium was added after the high/Fable/Gemini results were inspected; existing responses were retained. Each configuration has one retained draw per question, and the runs occurred at different times, so this is an exploratory paired comparison rather than a randomized, repeated experiment isolating effort from all provider variation.
+
+![GPT-6 medium versus high on matched questions](figures/astra_effort.png)
+
+The separate full-corpus 2,808-question medium-effort analysis used a different prompting setup and reported GPT-6 TVD 10.11 versus Aaru 7.71. Those numbers are not the medium-effort results reported here.
 
 | Model | Valid on first submission | Valid after bounded retry |
 |---|---:|---:|
-| GPT-6 Astra | 100/100 | 100/100 |
+| GPT-6 Astra (high) | 100/100 | 100/100 |
+| GPT-6 Astra (medium) | 100/100 | 100/100 |
 | Fable 5.1 | 100/100 | 100/100 |
 | Gemini 3.8 Flash | 97/100 | 100/100 |
 
@@ -24,7 +38,8 @@ Sensitivity check on the **97 questions with valid first-submission responses fr
 | Method | Mean TVD on common first-submission questions |
 |---|---:|
 | Aaru | 7.65 |
-| GPT-6 Astra | 9.21 |
+| GPT-6 Astra (high) | 9.21 |
+| GPT-6 Astra (medium) | 9.03 |
 | Fable 5.1 | 10.54 |
 | Gemini 3.8 Flash | 11.19 |
 
@@ -40,7 +55,7 @@ cd aaru-edsl-benchmark
 uv run --frozen aaru-edsl reproduce --check
 ```
 
-Outputs include [scores](results/scores.csv), [summary](results/summary.json), [cost reconciliation](data/cost_audit.json), [example questions and sources](results/examples.json), and a [three-page PDF](figures/benchmark.pdf). Checksums protect archive integrity; they are not independent attestations of inference provenance.
+Outputs include [scores](results/scores.csv), [summary](results/summary.json), [cost reconciliation](data/cost_audit.json), [example questions and sources](results/examples.json), and a [four-page PDF](figures/benchmark.pdf). Checksums protect archive integrity; they are not independent attestations of inference provenance.
 
 ## The EDSL example
 
@@ -63,7 +78,7 @@ questions = [
 ]
 agent = Agent(traits={"role": "forecaster"}, instruction=SYSTEM,
               traits_presentation_template="")
-spec = MODELS["astra"]  # also "fable" or "gemini"
+spec = MODELS["astra"]  # high; also "astra_medium", "fable", or "gemini"
 model = Model(spec["model"], service_name=spec["service"], **spec["parameters"])
 jobs = Survey(questions).by(agent).by(model)
 ```
@@ -84,7 +99,7 @@ If EDSL is already installed in your active environment, the login command is si
 ```sh
 uv run --frozen aaru-edsl infer --stage smoke --allow-paid-inference
 uv run --frozen aaru-edsl status
-# Repeat status until all three smoke jobs have been saved.
+# Repeat status until all four smoke jobs have been saved.
 uv run --frozen aaru-edsl infer --stage full --allow-paid-inference
 uv run --frozen aaru-edsl status
 # Repeat status until all remaining jobs have been saved.
@@ -92,7 +107,7 @@ uv run --frozen aaru-edsl archive
 uv run --frozen aaru-edsl reproduce
 ```
 
-The first stage runs the first sampled question for each model; the second runs the remaining 99. Together they are exactly the same 100 for all three models. Existing submission receipts prevent duplicate jobs; completed Results are retained under ignored `runs/`. Remote caching is enabled (`fresh=False`). An ambiguous submission attempt blocks resubmission until its receipt is reconciled. If the main run contains validation failures, inspect its saved failure records, then explicitly request one recovery round with `uv run --frozen aaru-edsl infer --stage retry --allow-paid-inference`, followed by `status`. Only failed questions are retried; this stage bypasses the response cache (`fresh=True`) and uses identical model settings and prompts. Archiving requires 100 valid forecasts per model. It explicitly replaces the included response archive; perform fresh runs on a new branch if you want to retain the original checkout unchanged.
+The first stage runs the first sampled question for each configuration; the second runs the remaining 99. Together they are exactly the same 100 for all four configurations. To submit only the medium arm, add `--models astra_medium` to both `infer` commands; other choices are `astra` (high), `fable`, and `gemini`. Existing submission receipts prevent duplicate jobs; completed Results are retained under ignored `runs/`. Remote caching is enabled (`fresh=False`). An ambiguous submission attempt blocks resubmission until its receipt is reconciled. If the main run contains validation failures, inspect its saved failure records, then explicitly request one recovery round with `uv run --frozen aaru-edsl infer --stage retry --allow-paid-inference`, followed by `status`. Only failed questions are retried; this stage bypasses the response cache (`fresh=True`) and uses identical model settings and prompts. Archiving requires 100 valid forecasts per configuration, including retained records for arms not newly submitted. It explicitly replaces the included response archive; perform fresh runs on a new branch if you want to retain the original checkout unchanged.
 
 ## Sample and model settings
 
@@ -100,7 +115,8 @@ Selection uses `random.Random(20260927).sample(sorted(eligible, key=id), 100)` f
 
 | Model | EP service | Reasoning | Output token cap |
 |---|---|---|---:|
-| `gpt-6-astra` | `openai` | high | 8,192 |
+| `gpt-6-astra` (`astra`) | `openai` | high | 8,192 |
+| `gpt-6-astra` (`astra_medium`) | `openai` | medium | 8,192 |
 | `claude-fable-5-1` | `anthropic` | adaptive, high effort | 8,192 |
 | `gemini-3.8-flash` | `google` | dynamic thinking budget (`-1`) | 8,192 |
 
@@ -112,9 +128,12 @@ See [protocol](data/protocol.json), [model catalog snapshot](data/catalog.json),
 
 | Model | Results cost | Reported EP job cost | Reconciliation |
 |---|---:|---:|---|
-| GPT-6 Astra | $3.28681 | $3.28670 | matched |
+| GPT-6 Astra (high) | $3.28681 | $3.28670 | matched |
+| GPT-6 Astra (medium) | $1.58811 | $1.58810 | matched |
 | Fable 5.1 | $2.90797 | $2.90770 | matched |
 | Gemini 3.8 Flash | $3.45663 | $3.45630 | unresolved |
+
+Medium used **$1.59** in recorded Results cost versus **$3.29** for high (48% as much). This is the cost of these retained runs, not a fixed price or a guarantee for future runs.
 
 Results costs use recorded token-price metadata and exclude cache hits. Reported EP costs are finalized job-accounting records, not independently verified account debits. The runner emits `CostReconciliationWarning` when those totals differ by more than $0.0002 per job (allowing two token-type billing line items to round to $0.0001). Answers are saved before warning; no automatic paid retry occurs. This local guard addresses the discrepancy documented in [EDSL #2668](https://github.com/expectedparrot/edsl/issues/2668); it is not a fix to EP’s billing backend.
 

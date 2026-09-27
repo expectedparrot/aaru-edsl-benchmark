@@ -40,19 +40,22 @@ def reconcile(results_cost, reported, complete=True, emit_warning=True):
         warnings.warn(f'Results cost ${results_cost:.5f} differs from reported job cost ${reported:.5f}; answers are preserved.', CostReconciliationWarning)
     return record
 
-def submit(run, env_file, stage, allow_paid):
+def submit(run, env_file, stage, allow_paid, model_keys=None):
+    keys = list(MODELS) if model_keys is None else list(model_keys)
+    if not keys or len(set(keys)) != len(keys) or any(k not in MODELS for k in keys):
+        raise ValueError('Select distinct known model configurations')
     if not allow_paid:
-        print('Plan only: three EP remote jobs, private, cache enabled. Add --allow-paid-inference to submit.')
+        print(f'Plan only: {len(keys)} selected EP configurations ({", ".join(keys)}), private. Add --allow-paid-inference to submit.')
         return
     sample = read(ROOT/'data/sample.json')
     questions = sample[:1] if stage == 'smoke' else sample[1:]
     if stage == 'full':
-        for key in MODELS:
+        for key in keys:
             if not (run / f'{key}_smoke/records.json').exists():
-                raise ValueError('Complete and retrieve all three smoke runs before submitting the remaining 99 questions.')
+                raise ValueError('Complete and retrieve smoke runs for selected configurations before submitting the remaining 99 questions.')
     coop = client(env_file)
     coop.get_balance()  # Authenticate before submitting anything.
-    for key in MODELS:
+    for key in keys:
         if stage == 'retry':
             failures_path = run/f'{key}_full/failures.json'
             failures = read(failures_path) if failures_path.exists() else []
@@ -125,7 +128,9 @@ def status(run, env_file):
     coop = client(env_file)
     for receipt_path in sorted(run.glob('*/submission.json')):
         folder = receipt_path.parent
-        key = folder.name.split('_')[0]
+        key = folder.name.rsplit('_', 1)[0]
+        if key not in MODELS:
+            raise ValueError(f'Unknown model configuration in receipt folder: {folder.name}')
         if (folder/'records.json').exists():
             print(folder.name + ': saved')
             continue
@@ -176,4 +181,4 @@ def archive(run):
     manifest = {'files': {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
                   for p in sorted((ROOT/'data').iterdir()) if p.is_file() and p.name!='manifest.json'}}
     write(ROOT/'data/manifest.json', manifest)
-    print(f'Archived 300 forecasts and {len(audits)} job cost records')
+    print(f'Archived {len(forecasts)} forecasts and {len(audits)} job cost records')

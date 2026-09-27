@@ -7,9 +7,20 @@
     "astra": {
       "model": "gpt-6-astra",
       "service": "openai",
-      "label": "GPT-6 Astra",
+      "label": "GPT-6 Astra (high)",
       "parameters": {
         "reasoning_effort": "high",
+        "temperature": 1,
+        "top_p": null,
+        "max_tokens": 8192
+      }
+    },
+    "astra_medium": {
+      "model": "gpt-6-astra",
+      "service": "openai",
+      "label": "GPT-6 Astra (medium)",
+      "parameters": {
+        "reasoning_effort": "medium",
         "temperature": 1,
         "top_p": null,
         "max_tokens": 8192
@@ -49,5 +60,6 @@
   "seed_scope": "Question selection only; provider outputs are stochastic.",
   "memory": "No cross-question memory",
   "temperature_note": "Fable adaptive thinking omits sampling parameters.",
-  "reasoning_note": "Astra and Fable high; Gemini dynamic thinking budget (-1). These are not equal compute budgets."
+  "reasoning_note": "Astra high and medium differ only in reasoning_effort; Fable high; Gemini dynamic thinking budget (-1). These are not equal compute budgets.",
+  "extension_note": "Astra medium was added after inspecting the completed high/Fable/Gemini run. Existing responses are retained. Effort comparison is exploratory and uses one draw per question per configuration."
 }

@@ -9,8 +9,10 @@ SYSTEM = ('Estimate the probability that a randomly selected member of the descr
           'Return a JSON object mapping each exact answer label to its probability. '
           'Use nonnegative numbers summing to 1.')
 MODELS = {
-    'astra': {'model': 'gpt-6-astra', 'service': 'openai', 'label': 'GPT-6 Astra',
+    'astra': {'model': 'gpt-6-astra', 'service': 'openai', 'label': 'GPT-6 Astra (high)',
               'parameters': {'reasoning_effort': 'high', 'temperature': 1, 'top_p': None, 'max_tokens': 8192}},
+    'astra_medium': {'model': 'gpt-6-astra', 'service': 'openai', 'label': 'GPT-6 Astra (medium)',
+              'parameters': {'reasoning_effort': 'medium', 'temperature': 1, 'top_p': None, 'max_tokens': 8192}},
     'fable': {'model': 'claude-fable-5-1', 'service': 'anthropic', 'label': 'Fable 5.1',
               'parameters': {'thinking': {'type': 'adaptive', 'display': 'omitted'}, 'output_config': {'effort': 'high'}, 'max_tokens': 8192}},
     'gemini': {'model': 'gemini-3.8-flash', 'service': 'google', 'label': 'Gemini 3.8 Flash',
@@ -41,7 +43,10 @@ def make_job(key, questions):
     model = Model(spec['model'], service_name=spec['service'], **spec['parameters'])
     return survey.by(agent).by(model)
 
-def prepare():
+def prepare(model_keys=None):
+    keys = list(MODELS) if model_keys is None else list(model_keys)
+    if not keys or len(set(keys)) != len(keys) or any(k not in MODELS for k in keys):
+        raise ValueError('Select distinct known model configurations')
     questions = selected()
     write(ROOT / 'data/sample.json', questions)
     write(ROOT / 'data/protocol.json', {'seed': SEED, 'sample_size': 100, 'eligible': 2808,
@@ -50,12 +55,13 @@ def prepare():
         'edsl_commit': 'cfef949e4ea87ab0bf6e998ab64b54a1bfcec6e4',
         'seed_scope': 'Question selection only; provider outputs are stochastic.',
         'memory': 'No cross-question memory', 'temperature_note': 'Fable adaptive thinking omits sampling parameters.',
-        'reasoning_note': 'Astra and Fable high; Gemini dynamic thinking budget (-1). These are not equal compute budgets.'})
-    for key in MODELS:
+        'reasoning_note': 'Astra high and medium differ only in reasoning_effort; Fable high; Gemini dynamic thinking budget (-1). These are not equal compute budgets.',
+        'extension_note': 'Astra medium was added after inspecting the completed high/Fable/Gemini run. Existing responses are retained. Effort comparison is exploratory and uses one draw per question per configuration.'})
+    for key in keys:
         job = make_job(key, questions)
         write(ROOT / f'data/{key}_jobs.json', job.to_dict())
         prompts = job.prompts().to_dicts()
         write(ROOT / f'data/{key}_prompts.json', [{k: str(v) if 'prompt' in k else v for k, v in p.items()} for p in prompts])
     files = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted((ROOT/'data').iterdir()) if p.is_file() and p.name != 'manifest.json'}
     write(ROOT / 'data/manifest.json', {'files': files})
-    print(f'Prepared {len(questions)} questions for {len(MODELS)} models; seed={SEED}')
+    print(f'Prepared {len(questions)} questions for {len(keys)} model configurations; seed={SEED}')

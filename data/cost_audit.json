@@ -24,6 +24,32 @@
     "job_uuid": "f93ca85f-288a-438a-9047-1488febf30da"
   },
   {
+    "model_key": "astra_medium",
+    "stage": "smoke",
+    "state": "matched",
+    "results_cost_usd": 0.02321,
+    "reported_job_cost_usd": 0.0232,
+    "difference_usd": -1.0000000000003062e-05,
+    "absolute_tolerance_usd": 0.0002,
+    "ratio": 0.9995691512279189,
+    "actual_debit_verified": false,
+    "job_uuid": "14aabd40-227d-4342-a3ef-7a372608c9f3",
+    "failed_questions": 0
+  },
+  {
+    "model_key": "astra_medium",
+    "stage": "full",
+    "state": "matched",
+    "results_cost_usd": 1.5649000000000002,
+    "reported_job_cost_usd": 1.5649000000000002,
+    "difference_usd": 0.0,
+    "absolute_tolerance_usd": 0.0002,
+    "ratio": 1.0,
+    "actual_debit_verified": false,
+    "job_uuid": "a39f9253-a524-49a7-9507-ac4ba5161a62",
+    "failed_questions": 0
+  },
+  {
     "model_key": "fable",
     "stage": "smoke",
     "state": "matched",

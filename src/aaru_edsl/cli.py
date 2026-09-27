@@ -11,17 +11,19 @@ def main():
     p.add_argument('--stage',choices=['smoke','full','retry'],default='smoke')
     p.add_argument('--allow-paid-inference',action='store_true')
     p.add_argument('--check',action='store_true')
+    from .protocol import MODELS
+    p.add_argument('--models',nargs='+',choices=list(MODELS),help='Configurations to prepare or submit; defaults to all')
     args=p.parse_args()
     os.environ.setdefault('EDSL_FETCH_TOKEN_PRICES','False')
     if args.action=='prepare':
         from .protocol import prepare
-        prepare()
+        prepare(args.models)
     elif args.action=='reproduce':
         from .report import reproduce
         reproduce(check=args.check)
     else:
         from . import inference
-        if args.action=='infer': inference.submit(args.run,args.env,args.stage,args.allow_paid_inference)
+        if args.action=='infer': inference.submit(args.run,args.env,args.stage,args.allow_paid_inference,args.models)
         elif args.action=='status': inference.status(args.run,args.env)
         else: inference.archive(args.run)
 

@@ -17,7 +17,7 @@
       "ties_against_aaru": 100
     },
     "astra": {
-      "label": "GPT-6 Astra",
+      "label": "GPT-6 Astra (high)",
       "mean_tvd": 9.053689559,
       "median_tvd": 7.0,
       "mean_difference_from_aaru": 1.5502170590000006,
@@ -26,6 +26,18 @@
         2.621740607722787
       ],
       "wins_against_aaru": 34,
+      "ties_against_aaru": 8
+    },
+    "astra_medium": {
+      "label": "GPT-6 Astra (medium)",
+      "mean_tvd": 8.8527615,
+      "median_tvd": 6.7525249999999994,
+      "mean_difference_from_aaru": 1.3492890000000006,
+      "paired_family_bootstrap_95ci": [
+        0.25408206791059895,
+        2.5719610669562987
+      ],
+      "wins_against_aaru": 40,
       "ties_against_aaru": 8
     },
     "fable": {
@@ -53,8 +65,24 @@
       "ties_against_aaru": 4
     }
   },
+  "astra_effort_comparison": {
+    "questions": 100,
+    "direction": "high TVD minus medium TVD; negative favors high",
+    "mean_difference": 0.20092805899999988,
+    "paired_family_bootstrap_95ci": [
+      -0.3021404718282111,
+      0.6381247583454432
+    ],
+    "high_wins": 37,
+    "medium_wins": 43,
+    "ties": 20
+  },
   "validity": {
     "astra": {
+      "first_submission_valid": 100,
+      "final_valid": 100
+    },
+    "astra_medium": {
       "first_submission_valid": 100,
       "final_valid": 100
     },
@@ -71,6 +99,7 @@
   "first_submission_common_mean_tvd": {
     "aaru": 7.647674742268041,
     "astra": 9.212928411340206,
+    "astra_medium": 9.030446907216495,
     "fable": 10.53573969072165,
     "gemini": 11.186359278350515
   }

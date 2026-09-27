@@ -9,7 +9,7 @@ from .data import ROOT, SEED, read, write
 from .protocol import MODELS, selected
 
 LABELS = {'aaru': 'Aaru', **{k:v['label'] for k,v in MODELS.items()}}
-COLORS = {'aaru':'#383e49','astra':'#187c80','fable':'#c77446','gemini':'#6f62b5'}
+COLORS = {'aaru':'#383e49','astra':'#187c80','astra_medium':'#4d94cf','fable':'#c77446','gemini':'#6f62b5'}
 
 def equivalent(a,b):
     if isinstance(a,dict) and isinstance(b,dict):
@@ -67,6 +67,23 @@ def summarize(rows):
              'wins_against_aaru':int((diffs < -1e-9).sum()),'ties_against_aaru':int((abs(diffs)<=1e-9).sum())}
     return summary
 
+def summarize_effort(rows):
+    high={r['id']:r for r in rows if r['model']=='astra'}
+    medium={r['id']:r for r in rows if r['model']=='astra_medium'}
+    if not high or high.keys()!=medium.keys():
+        raise ValueError('Effort comparison requires matching high and medium questions')
+    names=sorted({r['family'] for r in high.values()})
+    counts=np.array([sum(r['family']==f for r in high.values()) for f in names])
+    diffs={q:high[q]['tvd']-medium[q]['tvd'] for q in high}
+    sums=np.array([sum(diffs[q] for q in high if high[q]['family']==f) for f in names])
+    draws=np.random.default_rng(SEED).integers(0,len(names),size=(20000,len(names)))
+    boot=sums[draws].sum(axis=1)/counts[draws].sum(axis=1)
+    d=np.array(list(diffs.values()))
+    return {'questions':len(high),'direction':'high TVD minus medium TVD; negative favors high',
+            'mean_difference':float(d.mean()),'paired_family_bootstrap_95ci':np.quantile(boot,[.025,.975]).tolist(),
+            'high_wins':int((d < -1e-9).sum()),'medium_wins':int((d > 1e-9).sum()),
+            'ties':int((abs(d)<=1e-9).sum())}
+
 def plots(rows, summary, questions, forecasts):
     import matplotlib
     matplotlib.use('Agg')
@@ -88,43 +105,65 @@ def plots(rows, summary, questions, forecasts):
         axes[1].legend(frameon=False)
         fig.suptitle('One-shot marginal forecasts through EDSL / Expected Parrot',fontsize=15)
         fig.savefig(out/'comparison.png',dpi=180);pdf.savefig(fig);plt.close(fig)
-        fig,axes=plt.subplots(1,3,figsize=(12,4.3),layout='constrained')
-        for ax,key in zip(axes,MODELS):
+        fig,axes=plt.subplots(2,2,figsize=(12,7),layout='constrained')
+        for ax,key in zip(axes.flat,MODELS):
             diffs=values[key]-values['aaru']
             ax.hist(diffs,bins=np.linspace(-50,50,26),color=COLORS[key],alpha=.9)
             ax.axvline(0,color='#333',lw=1);ax.axvline(diffs.mean(),color=COLORS[key],ls='--')
             ax.set(title=LABELS[key],xlabel='Model TVD minus Aaru TVD',ylabel='Questions')
         fig.suptitle('Paired errors: negative values favor the one-shot model',fontsize=14)
         fig.savefig(out/'paired_errors.png',dpi=180);pdf.savefig(fig);plt.close(fig)
+        fig,axes=plt.subplots(1,2,figsize=(12,4.8),layout='constrained')
+        medium,high=values['astra_medium'],values['astra']
+        limit=max(float(medium.max()),float(high.max()))*1.08
+        axes[0].scatter(medium,high,color=COLORS['astra'],alpha=.65)
+        axes[0].plot([0,limit],[0,limit],ls='--',color='.5')
+        axes[0].set(xlabel='GPT-6 medium TVD',ylabel='GPT-6 high TVD',
+                    title='Each dot is the same question at both efforts',xlim=(0,limit),ylim=(0,limit))
+        delta=high-medium
+        axes[1].hist(delta,bins=np.linspace(-30,30,25),color=COLORS['astra_medium'])
+        axes[1].axvline(0,color='.3');axes[1].axvline(delta.mean(),color=COLORS['astra'],ls='--',label=f'Mean: {delta.mean():+.2f}')
+        axes[1].set(xlabel='High TVD minus medium TVD',ylabel='Questions',title='Negative favors high; positive favors medium')
+        axes[1].legend(frameon=False)
+        ci=summary['astra_effort_comparison']['paired_family_bootstrap_95ci']
+        fig.suptitle(f'GPT-6 reasoning effort: paired mean difference {delta.mean():+.2f} TVD (95% CI {ci[0]:+.2f}, {ci[1]:+.2f})',fontsize=13)
+        fig.savefig(out/'astra_effort.png',dpi=180);pdf.savefig(fig);plt.close(fig)
         by_key={(r['model_key'],r['id']):r for r in forecasts}
         # Sample order is frozen before inference; text restrictions only improve plot legibility.
         examples=[q for q in questions if len(q['options'])<=4 and q['prompt'].isascii() and all(o['label'].isascii() for o in q['options'])][:6]
         fig,axes=plt.subplots(3,2,figsize=(12,12),layout='constrained')
         for ax,q in zip(axes.flat,examples):
-            labels=[o['label'] for o in q['options']];x=np.arange(len(labels));width=.16
+            labels=[o['label'] for o in q['options']];x=np.arange(len(labels));width=.13
             vectors={'survey':[o['p'] for o in q['options']],'aaru':[o['f'] for o in q['options']],
                      **{k:[by_key[k,q['id']]['answer'][label] for label in labels] for k in MODELS}}
             for j,(key,vals) in enumerate(vectors.items()):
-                ax.bar(x+(j-2)*width,np.array(vals)*100,width,label='Survey' if key=='survey' else LABELS[key],color='#b9c0c6' if key=='survey' else COLORS[key])
+                ax.bar(x+(j-(len(vectors)-1)/2)*width,np.array(vals)*100,width,label='Survey' if key=='survey' else LABELS[key],color='#b9c0c6' if key=='survey' else COLORS[key])
             ax.set_xticks(x,['\n'.join(textwrap.wrap(s,23)) for s in labels],fontsize=8)
             ax.set_title('\n'.join(textwrap.wrap(q['prompt'],67)),fontsize=9)
             ax.set_ylabel('Share (%)');ax.set_ylim(0,105)
             from urllib.parse import urlsplit
             ax.text(0,-.25,'Source: '+urlsplit(q['source']).netloc,transform=ax.transAxes,fontsize=8)
         for ax in list(axes.flat)[len(examples):]:ax.set_visible(False)
-        if examples:fig.legend(*axes.flat[0].get_legend_handles_labels(),loc='upper center',ncol=5,bbox_to_anchor=(.5,1.025),frameon=False)
+        if examples:fig.legend(*axes.flat[0].get_legend_handles_labels(),loc='upper center',ncol=3,bbox_to_anchor=(.5,1.045),frameon=False)
         fig.savefig(out/'examples.png',dpi=180,bbox_inches='tight');pdf.savefig(fig,bbox_inches='tight');plt.close(fig)
     write(ROOT/'results/examples.json',examples)
 
 def readme(summary,audits):
     lines=['# One-shot survey forecasts with EDSL and Expected Parrot','',
-        '**A fixed sample of 100 Aaru benchmark questions, answered by GPT-6 Astra, Fable 5.1, and Gemini 3.8 Flash through EDSL / Expected Parrot.** Each model predicts the whole answer distribution in one response. Aaru’s published predictions are scored on the same questions. Invalid-format responses may receive one explicitly requested retry, as documented below.','',
+        '**A fixed sample of 100 Aaru benchmark questions, answered by GPT-6 Astra at medium and high reasoning effort, Fable 5.1, and Gemini 3.8 Flash through EDSL / Expected Parrot.** Each configuration predicts the whole answer distribution in one response. Aaru’s published predictions are scored on the same questions. Invalid-format responses may receive one explicitly requested retry, as documented below.','',
         '| Method | Mean TVD ↓ | Difference from Aaru | 95% paired family-bootstrap interval |',
         '|---|---:|---:|---|']
     for key,s in summary['models'].items():
         ci=s['paired_family_bootstrap_95ci'];lines.append(f"| {s['label']} | {s['mean_tvd']:.2f} | {s['mean_difference_from_aaru']:+.2f} | {'—' if key=='aaru' else f'[{ci[0]:+.2f}, {ci[1]:+.2f}]'} |")
     best=min(MODELS,key=lambda k:summary['models'][k]['mean_tvd']);s=summary['models'][best]
-    lines += ['',f"{s['label']} has the lowest mean error among the three one-shot models in this sample. Its mean TVD is {s['mean_tvd']:.2f}, versus {summary['models']['aaru']['mean_tvd']:.2f} for Aaru. This is a descriptive ranking from the retained valid responses, not evidence of a stable ordering across repeated runs.",'']
+    lines += ['',f"{s['label']} has the lowest mean error among the four one-shot configurations in this sample. Its mean TVD is {s['mean_tvd']:.2f}, versus {summary['models']['aaru']['mean_tvd']:.2f} for Aaru. This is a descriptive ranking from the retained valid responses, not evidence of a stable ordering across repeated runs.",'']
+    effort=summary['astra_effort_comparison'];ci=effort['paired_family_bootstrap_95ci']
+    lines += ['## GPT-6: medium versus high','',
+        f"High minus medium mean TVD is **{effort['mean_difference']:+.2f} points** (95% paired family-bootstrap interval **[{ci[0]:+.2f}, {ci[1]:+.2f}]**). Negative favors high. High has lower error on **{effort['high_wins']}/100** questions, medium on **{effort['medium_wins']}/100**, with **{effort['ties']}** ties.",'',
+        ('The interval includes zero: this sample does not establish a reliable accuracy advantage for either effort level.' if ci[0] <= 0 <= ci[1] else 'The interval excludes zero under this family-resampling scheme; it does not account for stochastic reruns or provider changes.'),'',
+        'Both configurations use exactly the same 100 questions, rendered prompts, EP service (`openai`), and 8,192-token output cap. The only configured difference is `reasoning_effort`. Medium was added after the high/Fable/Gemini results were inspected; existing responses were retained. Each configuration has one retained draw per question, and the runs occurred at different times, so this is an exploratory paired comparison rather than a randomized, repeated experiment isolating effort from all provider variation.','',
+        '![GPT-6 medium versus high on matched questions](figures/astra_effort.png)','',
+        'The separate full-corpus 2,808-question medium-effort analysis used a different prompting setup and reported GPT-6 TVD 10.11 versus Aaru 7.71. Those numbers are not the medium-effort results reported here.','']
     lines += ['| Model | Valid on first submission | Valid after bounded retry |','|---|---:|---:|']
     for key in MODELS:
         lines.append(f"| {LABELS[key]} | {summary['validity'][key]['first_submission_valid']}/100 | 100/100 |")
@@ -138,23 +177,23 @@ def readme(summary,audits):
         '## Reproduce the results without inference','',
         'Requires Git and [uv](https://docs.astral.sh/uv/). No credential or model call is needed to rebuild the numerical results and plots from the included response archive. The first run downloads the locked dependencies.','',
         '```sh','git clone https://github.com/expectedparrot/aaru-edsl-benchmark.git','cd aaru-edsl-benchmark','uv run --frozen aaru-edsl reproduce --check','```','',
-        'Outputs include [scores](results/scores.csv), [summary](results/summary.json), [cost reconciliation](data/cost_audit.json), [example questions and sources](results/examples.json), and a [three-page PDF](figures/benchmark.pdf). Checksums protect archive integrity; they are not independent attestations of inference provenance.','',
+        'Outputs include [scores](results/scores.csv), [summary](results/summary.json), [cost reconciliation](data/cost_audit.json), [example questions and sources](results/examples.json), and a [four-page PDF](figures/benchmark.pdf). Checksums protect archive integrity; they are not independent attestations of inference provenance.','',
         '## The EDSL example','',
         'The benchmark uses native `QuestionDistribution` objects. The same labels, population, question text, date, and instructions are supplied to each model. `make_job` builds the following pattern for every sampled question and applies the frozen provider settings:','',
         '```python','import json','from edsl import Agent, Model, QuestionDistribution, Survey','from aaru_edsl.protocol import SYSTEM, MODELS, context','',
         'sample = json.load(open("data/sample.json"))','questions = [','    QuestionDistribution(','        question_name=row["question_name"],','        question_text=json.dumps(context(row), ensure_ascii=False),','        question_options=[o["label"] for o in row["options"]],','        include_comment=False,','    )','    for row in sample',']',
-        'agent = Agent(traits={"role": "forecaster"}, instruction=SYSTEM,','              traits_presentation_template="")','spec = MODELS["astra"]  # also "fable" or "gemini"','model = Model(spec["model"], service_name=spec["service"], **spec["parameters"])','jobs = Survey(questions).by(agent).by(model)','```','',
+        'agent = Agent(traits={"role": "forecaster"}, instruction=SYSTEM,','              traits_presentation_template="")','spec = MODELS["astra"]  # high; also "astra_medium", "fable", or "gemini"','model = Model(spec["model"], service_name=spec["service"], **spec["parameters"])','jobs = Survey(questions).by(agent).by(model)','```','',
         'The runner submits these jobs explicitly to production EP remote inference. Only `EXPECTED_PARROT_API_KEY` is needed; no direct provider API key is used. Each interview has empty cross-question memory. Model outputs are label-keyed probabilities summing to one; native validation and an independent archive check reject invalid distributions. There is no uniform fallback, normalization, retrieval, persona simulation, or fine-tuning.','',
         '## Run new forecasts through EP — paid','',
         'From the repository directory, log in to Expected Parrot to save your EP key in the local `.env` file. Complete the sign-in in your browser:','',
         '```sh','uv run --frozen ep auth login','uv run --frozen ep check','```','',
         'If EDSL is already installed in your active environment, the login command is simply `ep auth login`. The benchmark reads the saved key automatically. Then run:','',
-        '```sh','uv run --frozen aaru-edsl infer --stage smoke --allow-paid-inference','uv run --frozen aaru-edsl status','# Repeat status until all three smoke jobs have been saved.','uv run --frozen aaru-edsl infer --stage full --allow-paid-inference','uv run --frozen aaru-edsl status','# Repeat status until all remaining jobs have been saved.','uv run --frozen aaru-edsl archive','uv run --frozen aaru-edsl reproduce','```','',
-        'The first stage runs the first sampled question for each model; the second runs the remaining 99. Together they are exactly the same 100 for all three models. Existing submission receipts prevent duplicate jobs; completed Results are retained under ignored `runs/`. Remote caching is enabled (`fresh=False`). An ambiguous submission attempt blocks resubmission until its receipt is reconciled. If the main run contains validation failures, inspect its saved failure records, then explicitly request one recovery round with `uv run --frozen aaru-edsl infer --stage retry --allow-paid-inference`, followed by `status`. Only failed questions are retried; this stage bypasses the response cache (`fresh=True`) and uses identical model settings and prompts. Archiving requires 100 valid forecasts per model. It explicitly replaces the included response archive; perform fresh runs on a new branch if you want to retain the original checkout unchanged.','',
+        '```sh','uv run --frozen aaru-edsl infer --stage smoke --allow-paid-inference','uv run --frozen aaru-edsl status','# Repeat status until all four smoke jobs have been saved.','uv run --frozen aaru-edsl infer --stage full --allow-paid-inference','uv run --frozen aaru-edsl status','# Repeat status until all remaining jobs have been saved.','uv run --frozen aaru-edsl archive','uv run --frozen aaru-edsl reproduce','```','',
+        'The first stage runs the first sampled question for each configuration; the second runs the remaining 99. Together they are exactly the same 100 for all four configurations. To submit only the medium arm, add `--models astra_medium` to both `infer` commands; other choices are `astra` (high), `fable`, and `gemini`. Existing submission receipts prevent duplicate jobs; completed Results are retained under ignored `runs/`. Remote caching is enabled (`fresh=False`). An ambiguous submission attempt blocks resubmission until its receipt is reconciled. If the main run contains validation failures, inspect its saved failure records, then explicitly request one recovery round with `uv run --frozen aaru-edsl infer --stage retry --allow-paid-inference`, followed by `status`. Only failed questions are retried; this stage bypasses the response cache (`fresh=True`) and uses identical model settings and prompts. Archiving requires 100 valid forecasts per configuration, including retained records for arms not newly submitted. It explicitly replaces the included response archive; perform fresh runs on a new branch if you want to retain the original checkout unchanged.','',
         '## Sample and model settings','',
         f"Selection uses `random.Random({SEED}).sample(sorted(eligible, key=id), 100)` from the 2,808 eligible categorical questions. Eligibility excludes 143 noncategorical entries and 42 strict duplicates from the original 2,993-record export. The seed fixes selection only; inference is stochastic. The selected questions span {summary['families']} operational survey families.",'',
         '| Model | EP service | Reasoning | Output token cap |','|---|---|---|---:|',
-        '| `gpt-6-astra` | `openai` | high | 8,192 |','| `claude-fable-5-1` | `anthropic` | adaptive, high effort | 8,192 |','| `gemini-3.8-flash` | `google` | dynamic thinking budget (`-1`) | 8,192 |','',
+        '| `gpt-6-astra` (`astra`) | `openai` | high | 8,192 |','| `gpt-6-astra` (`astra_medium`) | `openai` | medium | 8,192 |','| `claude-fable-5-1` | `anthropic` | adaptive, high effort | 8,192 |','| `gemini-3.8-flash` | `google` | dynamic thinking budget (`-1`) | 8,192 |','',
         'Reasoning controls differ across providers; these settings do not equate compute budgets. Gemini 3.8 Flash was the latest general-purpose text release listed in [Google’s model catalog](https://ai.google.dev/gemini-api/docs/models) and EP’s catalog when the experiment was prepared on September 27, 2026. Exact names are frozen rather than using moving “latest” aliases. EDSL is pinned to public Git commit `cfef949e4ea87ab0bf6e998ab64b54a1bfcec6e4`, which includes `QuestionDistribution`.','',
         'See [protocol](data/protocol.json), [model catalog snapshot](data/catalog.json), and the `*_jobs.json` / `*_prompts.json` files for the precise settings and rendered prompts. Reference shares, Aaru forecasts, source URLs, and other survey answers are excluded from model input. Audience descriptions are supplied by the benchmark and may contain substantive context; excluding numeric target fields does not prove freedom from leakage.','',
         '## Costs and reconciliation','',
@@ -164,6 +203,9 @@ def readme(summary,audits):
         low=sum(a['results_cost_usd'] for a in selected_audits);high=sum(a['reported_job_cost_usd'] for a in selected_audits)
         state='discrepancy' if any(a['state']=='discrepancy' for a in selected_audits) else 'matched' if all(a['state']=='matched' for a in selected_audits) else 'unresolved'
         lines.append(f'| {LABELS[key]} | ${low:.5f} | ${high:.5f} | {state} |')
+    medium_cost=sum(a['results_cost_usd'] for a in audits if a['model_key']=='astra_medium')
+    high_cost=sum(a['results_cost_usd'] for a in audits if a['model_key']=='astra')
+    lines += ['',f'Medium used **${medium_cost:.2f}** in recorded Results cost versus **${high_cost:.2f}** for high ({medium_cost/high_cost:.0%} as much). This is the cost of these retained runs, not a fixed price or a guarantee for future runs.']
     lines+=['','Results costs use recorded token-price metadata and exclude cache hits. Reported EP costs are finalized job-accounting records, not independently verified account debits. The runner emits `CostReconciliationWarning` when those totals differ by more than $0.0002 per job (allowing two token-type billing line items to round to $0.0001). Answers are saved before warning; no automatic paid retry occurs. This local guard addresses the discrepancy documented in [EDSL #2668](https://github.com/expectedparrot/edsl/issues/2668); it is not a fix to EP’s billing backend.','',
         'A separate one-question Astra adapter check on `openai_v2` returned a valid answer but exposed the earlier accounting mismatch ($0.04981 in Results versus $0.61990 reported by EP). It is excluded from the 100-question accuracy comparison and the table above; [its cost record](data/adapter_diagnostic.json) is preserved. We switched to EP’s catalog-listed `openai` route based on billing compatibility before the full run, not based on forecast accuracy. Add that diagnostic cost when totaling all experiment spending.','',
         '## Interpretation','',
@@ -187,6 +229,7 @@ def reproduce(check=False):
     if questions!=selected(): raise ValueError('Frozen sample differs from seeded reconstruction')
     forecasts=read(ROOT/'data/forecasts.json')
     rows=score(questions,forecasts);summary=summarize(rows)
+    summary['astra_effort_comparison']=summarize_effort(rows)
     summary['validity']={k:{'first_submission_valid':sum(r['model_key']==k and r['stage']!='retry' for r in forecasts),
                             'final_valid':sum(r['model_key']==k for r in forecasts)} for k in MODELS}
     retry_ids={r['id'] for r in forecasts if r['stage']=='retry'}
