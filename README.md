@@ -35,7 +35,7 @@ Sensitivity check on the **97 questions with valid first-submission responses fr
 Requires Git and [uv](https://docs.astral.sh/uv/). No credential or model call is needed to rebuild the numerical results and plots from the included response archive. The first run downloads the locked dependencies.
 
 ```sh
-git clone https://github.com/johnjosephhorton/aaru-edsl-benchmark.git
+git clone https://github.com/expectedparrot/aaru-edsl-benchmark.git
 cd aaru-edsl-benchmark
 uv run --frozen aaru-edsl reproduce --check
 ```

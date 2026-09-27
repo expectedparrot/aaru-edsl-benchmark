@@ -137,7 +137,7 @@ def readme(summary,audits):
         '![Mean errors and TVD distributions](figures/comparison.png)','',
         '## Reproduce the results without inference','',
         'Requires Git and [uv](https://docs.astral.sh/uv/). No credential or model call is needed to rebuild the numerical results and plots from the included response archive. The first run downloads the locked dependencies.','',
-        '```sh','git clone https://github.com/johnjosephhorton/aaru-edsl-benchmark.git','cd aaru-edsl-benchmark','uv run --frozen aaru-edsl reproduce --check','```','',
+        '```sh','git clone https://github.com/expectedparrot/aaru-edsl-benchmark.git','cd aaru-edsl-benchmark','uv run --frozen aaru-edsl reproduce --check','```','',
         'Outputs include [scores](results/scores.csv), [summary](results/summary.json), [cost reconciliation](data/cost_audit.json), [example questions and sources](results/examples.json), and a [three-page PDF](figures/benchmark.pdf). Checksums protect archive integrity; they are not independent attestations of inference provenance.','',
         '## The EDSL example','',
         'The benchmark uses native `QuestionDistribution` objects. The same labels, population, question text, date, and instructions are supplied to each model. `make_job` builds the following pattern for every sampled question and applies the frozen provider settings:','',
