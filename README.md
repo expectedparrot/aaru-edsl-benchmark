@@ -72,9 +72,16 @@ The runner submits these jobs explicitly to production EP remote inference. Only
 
 ## Run new forecasts through EP — paid
 
+From the repository directory, log in to Expected Parrot to save your EP key in the local `.env` file. Complete the sign-in in your browser:
+
 ```sh
-cp .env.example .env
-# Set EXPECTED_PARROT_API_KEY locally.
+uv run --frozen ep auth login
+uv run --frozen ep check
+```
+
+If EDSL is already installed in your active environment, the login command is simply `ep auth login`. The benchmark reads the saved key automatically. Then run:
+
+```sh
 uv run --frozen aaru-edsl infer --stage smoke --allow-paid-inference
 uv run --frozen aaru-edsl status
 # Repeat status until all three smoke jobs have been saved.
